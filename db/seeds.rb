@@ -4,7 +4,7 @@ require 'faker'
 10.times do
   User.create!(
     email: Faker::Internet.unique.email,
-    encrypted_password: Faker::Internet.password,
+    password: "password",
     username: Faker::Internet.unique.username,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
@@ -85,7 +85,7 @@ end
     text: Faker::Lorem.paragraph,
     author: Faker::Book.author,
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    type: ["Blog", "Article", "Video", "Book"].sample,
+    type: "pdf",
     url: Faker::Internet.url
   )
 end
