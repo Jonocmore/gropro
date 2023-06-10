@@ -1,7 +1,7 @@
 require 'faker'
 
 # Users
-10.times do
+users = 10.times.map do
   User.create!(
     email: Faker::Internet.unique.email,
     password: "password",
@@ -12,15 +12,15 @@ require 'faker'
 end
 
 # Forums
-5.times do
+forums = 5.times.map do
   Forum.create!(
     name: Faker::Lorem.word.capitalize,
-    user_id: User.pluck(:id).sample
+    user: users.sample
   )
 end
 
 # Plants
-10.times do
+plants = 10.times.map do
   Plant.create!(
     name: Faker::Food.vegetables,
     category: ["Vegetable", "Fruit", "Herb", "Flower"].sample,
@@ -35,10 +35,10 @@ end
 end
 
 # Gardens
-10.times do
+gardens = 10.times.map do
   Garden.create!(
     name: Faker::Lorem.word.capitalize,
-    user_id: User.pluck(:id).sample,
+    user: users.sample,
     date_planted: Faker::Date.between(from: 2.years.ago, to: Date.today),
     location: Faker::Address.city,
     sunlight: rand(1..10),
@@ -50,9 +50,9 @@ end
 # GardenPlants
 30.times do
   GardenPlant.create!(
-    garden_id: Garden.pluck(:id).sample,
-    plant_id: Plant.pluck(:id).sample,
-    user_id: User.pluck(:id).sample,
+    garden: gardens.sample,
+    plant: plants.sample,
+    user: users.sample,
     comment: Faker::Lorem.sentence,
     planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
     expected_harvest_date: Faker::Date.forward(days: 60)
@@ -63,18 +63,18 @@ end
 30.times do
   Massage.create!(
     content: Faker::Lorem.paragraph,
-    forum_id: Forum.pluck(:id).sample,
-    user_id: User.pluck(:id).sample
+    forum_id: rand(1..5),
+    user_id: rand(1..10)
   )
 end
 
 # Recommendations
 30.times do
   Recommendation.create!(
-    plant_id: Plant.pluck(:id).sample,
+    plant: plants.sample,
     text: Faker::Lorem.paragraph,
     trigger_conditions: Faker::Lorem.sentence,
-    garden_id: Garden.pluck(:id).sample
+    garden: gardens.sample
   )
 end
 
@@ -85,7 +85,7 @@ end
     text: Faker::Lorem.paragraph,
     author: Faker::Book.author,
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    type: "pdf",
+    file_type: "pdf",
     url: Faker::Internet.url
   )
 end
