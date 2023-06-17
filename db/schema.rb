@@ -49,14 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_140459) do
     t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
-  create_table "massages", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "forum_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["forum_id"], name: "index_massages_on_forum_id"
-    t.index ["user_id"], name: "index_massages_on_user_id"
+    t.index ["forum_id"], name: "index_messages_on_forum_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -106,7 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_140459) do
   end
 
   create_table "user_resources", force: :cascade do |t|
-    t.boolean "is_favourate"
+    t.boolean "is_favorite"
     t.bigint "user_id", null: false
     t.bigint "resource_id", null: false
     t.datetime "created_at", null: false
@@ -135,8 +135,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_140459) do
   add_foreign_key "garden_plants", "plants"
   add_foreign_key "garden_plants", "users"
   add_foreign_key "gardens", "users"
-  add_foreign_key "massages", "forums"
-  add_foreign_key "massages", "users"
+  add_foreign_key "messages", "forums"
+  add_foreign_key "messages", "users"
   add_foreign_key "recommendations", "gardens"
   add_foreign_key "recommendations", "plants"
   add_foreign_key "user_resources", "resources"
