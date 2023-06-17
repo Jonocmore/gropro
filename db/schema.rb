@@ -60,15 +60,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_140459) do
   end
 
   create_table "plants", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.string "description"
+    t.string "plant_image"
+    t.string "plant_name"
+    t.string "crop_rotation_group"
+    t.string "soil"
+    t.string "position"
+    t.string "frost_tolerant"
+    t.string "feeding"
+    t.string "spacing_single_plant"
+    t.string "spacing_rows"
+    t.string "sow_and_plant"
+    t.string "notes"
+    t.string "harvesting"
     t.string "water_schedule"
     t.string "location"
     t.string "how_to"
     t.integer "sunlight"
     t.integer "size"
     t.string "lifecycle"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
