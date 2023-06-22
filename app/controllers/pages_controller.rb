@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @plants = if category.present?
         Plant.where(category: category).order("RANDOM()").limit(4)
       else
-        Plant.order("RANDOM()").limit(4)
+        Plant.order("RANDOM()").limit(32)
       end
 
     puts "Plants count: #{@plants}" # Add this line for debugging

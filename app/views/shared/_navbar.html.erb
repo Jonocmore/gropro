@@ -12,8 +12,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item <%= 'active' if current_page?(home_path) %>">
-          <%= link_to "Home", home_path, class: "nav-link" %>
+        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+          <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item <%= 'active' if current_page?(gardens_path) %>">
           <%= link_to "Gardens", gardens_path, class: "nav-link" %>
