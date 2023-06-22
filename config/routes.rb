@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
+  root to: "pages#home", as: :home
   devise_for :users
-  root to: "pages#home"
-  resources :plants, only: %i[index show]
-  resources :gardens, except: %i[destroy] do
-    resources :recommendations, only: %i[show create]
-    resources :plants
+  resources :users, only: [] do
+    # resources :gardens, only: [:index, :show]
   end
-  resources :resources, only: %i[index show]
-  # resources :plants, only: %i[index show]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :gardens, only: [:show, :new, :create, :edit, :update] do
+    resources :recommendations, only: [:index]
+    resources :plants, only: [:index, :new, :create, :show, :destroy]
+  end
+  resources :resources, only: [:index, :show]
 end
