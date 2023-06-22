@@ -157,24 +157,6 @@
 <row name="harvesting" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
-<row name="water_schedule" null="1" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>NULL</default></row>
-<row name="how_to" null="1" autoincrement="0">
-<datatype>TEXT</datatype>
-<default>NULL</default></row>
-<row name="sunlight" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="size" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="lifecycle" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
