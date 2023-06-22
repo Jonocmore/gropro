@@ -1,21 +1,52 @@
-<nav class="navbar navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <%= image_tag("gropro_name.png", alt: "Company logo") %>
-  </a>
-
-  <div class="navbar-nav">
-    <a class="nav-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">Home</a>
-    <a class="nav-item <%= "active" if current_page?(gardens_path) %>" href="<%= gardens_path %>">Garden</a>
-    <a class="nav-item <%= "active" if current_page?(resources_path) %>" href="<%= resources_path %>">Resources</a>
-    <a class="nav-item <%= "active" if current_page?(resources_path) %>" href="<%= resources_path %>">Forum</a>
-  </div>
-
-
-  <div class="navbar-login-icon">
-    <%= link_to new_user_session_path do %>
-      <!-- The icon will be displayed here via CSS. -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex align-items-end justify-content-between">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "gropro_name.png" %>
     <% end %>
-  </div>
 
-  <div class="navbar-line"></div>
-</nav>
+    <%= image_tag "pot_plants.png", class: "middle-image" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item <%= 'active' if current_page?(home_path) %>">
+          <%= link_to "Home", home_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(gardens_path) %>">
+          <%= link_to "Gardens", gardens_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(resources_path) %>">
+          <%= link_to "Resources", resources_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= 'active' if current_page?(resources_path) %>">
+          <%= link_to "Forum", resources_path, class: "nav-link" %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
