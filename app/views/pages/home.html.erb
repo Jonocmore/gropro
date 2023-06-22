@@ -5,11 +5,11 @@
   <div class="row">
     <div class="col">
       <div class="filter-buttons">
-        <%= link_to "All", home_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
-        <%= link_to "Fruits", home_path(category: "fruits"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
-        <%= link_to "Vegetables", home_path(category: "vegetables"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
-        <%= link_to "Flowers", home_path(category: "flowers"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
-        <%= link_to "Herbs", home_path(category: "herbs"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
+        <%= link_to "All", root_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
+        <%= link_to "Fruits", root_path(category: "fruits"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
+        <%= link_to "Vegetables", root_path(category: "vegetables"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
+        <%= link_to "Flowers", root_path(category: "flowers"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
+        <%= link_to "Herbs", root_path(category: "herbs"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
       </div>
     </div>
   </div>

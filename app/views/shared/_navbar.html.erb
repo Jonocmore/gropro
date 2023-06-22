@@ -4,11 +4,12 @@
   </a>
 
   <div class="navbar-nav">
-    <a class="nav-item <%= 'active' if current_page?(home_path) %>" href="<%= home_path %>">Home</a>
-    <a class="nav-item <%= 'active' if current_page?(gardens_path) %>" href="<%= gardens_path %>">Garden</a>
-    <a class="nav-item <%= 'active' if current_page?(resources_path) %>" href="<%= resources_path %>">Resources</a>
-    <a class="nav-item <%= 'active' if current_page?(resources_path) %>" href="<%= resources_path %>">Forum</a>
+    <a class="nav-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">Home</a>
+    <a class="nav-item <%= "active" if current_page?(gardens_path) %>" href="<%= gardens_path %>">Garden</a>
+    <a class="nav-item <%= "active" if current_page?(resources_path) %>" href="<%= resources_path %>">Resources</a>
+    <a class="nav-item <%= "active" if current_page?(resources_path) %>" href="<%= resources_path %>">Forum</a>
   </div>
+
 
   <div class="navbar-login-icon">
     <%= link_to new_user_session_path do %>
