@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+  before_action :set_plant, only: [:show]
+
   def index
   end
 
@@ -8,10 +10,6 @@ class PlantsController < ApplicationController
   def create
   end
 
-  def show
-    @plant = Plant.find(params[:id])
-  end
-
   def edit
   end
 
@@ -19,5 +17,8 @@ class PlantsController < ApplicationController
   end
 
   def delete
+  end
+
+  def show
   end
 end

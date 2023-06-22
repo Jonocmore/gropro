@@ -13,12 +13,6 @@ class CreatePlants < ActiveRecord::Migration[7.0]
       t.string :sow_and_plant
       t.string :notes
       t.string :harvesting
-      t.string :water_schedule
-      t.string :location
-      t.string :how_to
-      t.integer :sunlight
-      t.integer :size
-      t.string :lifecycle
       t.string :category
 
       t.timestamps

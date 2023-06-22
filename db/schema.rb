@@ -72,12 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_140459) do
     t.string "sow_and_plant"
     t.string "notes"
     t.string "harvesting"
-    t.string "water_schedule"
-    t.string "location"
-    t.string "how_to"
-    t.integer "sunlight"
-    t.integer "size"
-    t.string "lifecycle"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

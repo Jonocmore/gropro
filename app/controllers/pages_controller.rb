@@ -1,10 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
-
   def home
+    category = params[:category]
+    puts "Category: #{category}" # Add this line for debugging
+
+    @plants = if category.present?
+        Plant.where(category: category).order("RANDOM()").limit(4)
+      else
+        Plant.order("RANDOM()").limit(4)
+      end
+
+    puts "Plants count: #{@plants}" # Add this line for debugging
   end
 
-  def index
-    @plants = Plant.all
-  end
+  # Other actions in the PagesController
 end

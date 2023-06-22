@@ -1,1 +1,28 @@
+<!-- home.html.erb -->
 <h1>Welcome to GroPro Farming</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="filter-buttons">
+        <%= link_to "All", home_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
+        <%= link_to "Fruits", home_path(category: "fruits"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
+        <%= link_to "Vegetables", home_path(category: "vegetables"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
+        <%= link_to "Flowers", home_path(category: "flowers"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
+        <%= link_to "Herbs", home_path(category: "herbs"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @plants.each do |plant| %>
+      <div class="col-md-3">
+        <div class="card">
+          <%= image_tag plant.plant_image, class: "card-img" %>
+          <div class="card-body">
+            <h2 class="card-title"><%= plant.plant_name %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
