@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-  devise_for :users
 
-  resources :gardens, except: %i[destroy] do
-    resources :recommendations, only: %i[show create]
-    resources :plants, only: %i[index show destroy]
+  devise_for :users, controllers: {
+            sessions: "users/sessions",
+            registrations: "users/registrations",
+          }
+
+  resources :gardens, except: [:destroy] do
+    resources :recommendations, only: [:show, :create]
+    resources :plants, only: [:index, :show, :destroy]
   end
 
-  resources :resources, only: %i[index show]
+  resources :resources, only: [:index, :show]
 end
