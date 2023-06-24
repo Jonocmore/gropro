@@ -90,7 +90,7 @@ doc.search(".plantIndexCell").each do |element|
   plant.save!
 end
 
-#catogory of plants
+# category of plants
 p "herb"
 doc.search(".herb").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
@@ -217,6 +217,6 @@ p "user_resources"
   UserResource.create!(
     user_id: rand(1..5),
     resource_id: rand(1..10),
-    is_favorite: false,
+    is_favorite: false
   )
 end

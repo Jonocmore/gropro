@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :plants, only: [:index, :show, :destroy]
   end
 
-  resources :resources, only: [:index, :show]
+  resources :resources, only: %i[index show]
+  resources :forums, only: %i[index]
 end
