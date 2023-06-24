@@ -20,7 +20,7 @@
     <% @plants.each do |plant| %>
       <div class="col-md-3">
         <div class="card">
-          <%= image_tag plant.plant_image, class: "card-img" %>
+          <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "card-img" %><% end %>
           <div class="card-body">
             <h2 class="card-title"><%= plant.plant_name %></h2>
           </div>
