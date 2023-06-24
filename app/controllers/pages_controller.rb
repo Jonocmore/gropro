@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: %i[home show]
+
   def home
     category = params[:category]
     puts "Category: #{category}" # Add this line for debugging
@@ -10,6 +12,9 @@ class PagesController < ApplicationController
       end
 
     puts "Plants count: #{@plants}" # Add this line for debugging
+  end
+
+  def show
   end
 
   # Other actions in the PagesController
