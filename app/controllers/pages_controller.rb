@@ -3,14 +3,17 @@ class PagesController < ApplicationController
     category = params[:category]
     puts "Category: #{category}" # Add this line for debugging
 
-    @plants = if category.present?
+    if params[:query].present?
+      @plants = Plant.search_by_plant_name(params[:query])
+    else
+      @plants = if category.present?
         Plant.where(category: category).order("RANDOM()").limit(4)
       else
         Plant.order("RANDOM()").limit(32)
       end
+    end
 
     puts "Plants count: #{@plants}" # Add this line for debugging
   end
-
   # Other actions in the PagesController
 end
