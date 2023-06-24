@@ -1,0 +1,57 @@
+<div class="main-container">
+  <div class="plant-heading">
+    <h1><%= @plant.plant_name %></h1>
+  </div>
+  <div class="plant-image-container">
+    <div class="radial-border">
+      <%= image_tag @plant.plant_image, class: "plant-image" %>
+    </div>
+  </div>
+  <div class="plant-details">
+    <%# <div class="plant-info">
+      <h3>Crop Rotation Group</h3>
+      <p><%= @plant.crop_rotation_group %>
+    <%# </div> %>
+
+    <div class="plant-info">
+      <h3>Soil</h3>
+      <p><%= @plant.soil %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Position</h3>
+      <p><%= @plant.position %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Frost tolerant</h3>
+      <p><%= @plant.frost_tolerant %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Feeding</h3>
+      <p><%= @plant.feeding %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Spacing</h3>
+      <p><strong>Single Plants:</strong> <%= @plant.spacing_single_plant %></p>
+      <p><strong>Rows:</strong> <%= @plant.spacing_rows %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Sow and Plant</h3>
+      <p><%= @plant.sow_and_plant %></p>
+    </div>
+
+    <div class="plant-info">
+      <h3>Notes</h3>
+      <p><%= @plant.notes %></p>
+    </div>
+
+    <div class="plant-info-end">
+      <h3>Harvesting</h3>
+      <p><%= @plant.harvesting %></p>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+  resources :pages, only: %i[home show]
 
   devise_for :users
 
