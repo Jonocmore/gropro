@@ -1,1 +1,31 @@
-<h1>Public Show Page</h1>
+
+<p><%= image_tag @plant.plant_image, class: "card-img" %></p>
+<h1><%= @plant.plant_name %></h1>
+
+<h3>Crop Rotation Group</h3>
+<p><%= @plant.crop_rotation_group %></p>
+
+<h3>Soil</h3>
+<p><%= @plant.soil %></p>
+
+<h3>Position</h3>
+<p><%= @plant.position %></p>
+
+<h3>Frost tolerant</h3>
+<p><%= @plant.frost_tolerant %></p>
+
+<h3>Feeding</h3>
+<p><%= @plant.feeding %></p>
+
+<h3>Spacing</h3>
+<p><strong>Single Plants:</strong> <%= @plant.spacing_single_plant %></p>
+<p><strong>Rows:</strong> <%= @plant.spacing_rows %></p>
+
+<h3>Sow and Plant</h3>
+<p><%= @plant.sow_and_plant %></p>
+
+<h3>Notes</h3>
+<p><%= @plant.notes %></p>
+
+<h3>Harvesting</h3>
+<p><%= @plant.harvesting %></p>
