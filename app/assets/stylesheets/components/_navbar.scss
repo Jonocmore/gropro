@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: flex-end; /* This aligns the items inside your navbar to the bottom */
   background: #F3EFE0;
   height: 120px;
   width: 100%;
@@ -50,6 +51,14 @@
   right: 0;
   margin-left: auto;
   margin-right: 55%;
+}
+
+.name-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: 20px;
 }
 
 @media (max-width: 1188px) {

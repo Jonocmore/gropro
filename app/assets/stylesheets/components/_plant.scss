@@ -1,0 +1,51 @@
+.plant-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+}
+
+.plant-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.radial-broder {
+  display: inline-block;
+  border-radius: 10px;
+  background: radial-gradient(circle at center, lightgray 10%, transparent 11%, transparent 100%);
+  padding: 10px;
+}
+
+.plant-details {
+  margin: 2rem auto;
+  margin-bottom: 0;
+  max-width: 1000px; /* Or adjust to fit your site design */
+}
+
+.plant-info {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #F3EFE0; /* Light grey background for visibility, change as needed */
+  border-radius: 10px; /* Rounded corners for a softer appearance */
+}
+
+.plant-info-end {
+  padding: 1rem;
+  background: #F3EFE0; /* Light grey background for visibility, change as needed */
+  border-radius: 10px; /* Rounded corners for a softer appearance */
+}
+
+
+.plant-info h3 {
+  margin-bottom: 0.5rem; /* Space out the heading from the text a little */
+}
+
+.plant-info p {
+  margin: 0; /* Remove default paragraph margin */
+}
