@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: %i[home]
+
   def home
     category = params[:category]
     puts "Category: #{category}" # Add this line for debugging
