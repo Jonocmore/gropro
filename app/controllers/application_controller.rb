@@ -1,16 +1,12 @@
 class ApplicationController < ActionController::Base
+  # [...]
   before_action :authenticate_user!, except: [:home]
-  respond_to :html, :json
 
-  # Other code in your ApplicationController
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
 
-  private
-
-  def after_sign_in_path_for(resource)
-    if resource.is_a?(User)
-      user_session_path(resource)
-    else
-      super
-    end
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 end
