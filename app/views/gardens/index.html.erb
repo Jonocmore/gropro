@@ -5,10 +5,8 @@
 
 
 
-
-
-
-
-
+<% @gardens.each do |garden| %>
+  <%= garden.size %>
+<% end %>
 <p>I Can Opt To Create A New Garden</p>
 <%= link_to "Create New Garden", new_garden_path, class: "btn btn-primary" %>
