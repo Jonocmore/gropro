@@ -9,9 +9,9 @@ class PagesController < ApplicationController
       @plants = Plant.search_by_plant_name(params[:query])
     else
       @plants = if category.present?
-        Plant.where(category: category).order("RANDOM()").limit(4)
+        Plant.where(category: category)
       else
-        Plant.order("RANDOM()").limit(32)
+        Plant.order(:plant_name)
       end
     end
 
