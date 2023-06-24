@@ -9,7 +9,11 @@ class PagesController < ApplicationController
       @plants = Plant.search_by_plant_name(params[:query])
     else
       @plants = if category.present?
-        Plant.where(category: category)
+        if category == 'popular'
+          Plant.where(popular: true)
+        else
+          Plant.where(category: category)
+        end
       else
         Plant.order(:plant_name)
       end

@@ -28,6 +28,7 @@
             </div>
           </div>
           <div class="filter-buttons">
+            <%= link_to "Most Popular", root_path(category: "popular"), class: "btn btn-primary filter-button #{params[:category] == "popular" ? "active" : ""}" %>
             <%= link_to "All", root_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
             <%= link_to "Fruits", root_path(category: "fruit"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
             <%= link_to "Vegetables", root_path(category: "vegetable"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
