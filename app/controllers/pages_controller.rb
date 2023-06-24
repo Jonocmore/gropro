@@ -19,6 +19,7 @@ class PagesController < ApplicationController
   end
 
   def show
+    @plant = Plant.find(params[:id])
   end
 
   # Other actions in the PagesController
