@@ -1,18 +1,11 @@
-<h1>Create a new Garden Page</h1>
+<h1>Enter Details For Your Garden</h1>
 
 <p>Put in Garden details like size and sunlight (Assisted By ChatGPT API) using prompts</p>
 
 
 <!-- app/views/gardens/new.html.erb -->
-
-<h1>Create a New Garden</h1>
-
-<%= form_for @garden, url: gardens_path, method: :post do |f| %>
-  <%= f.label :size, "Garden Size (m2)" %>
-  <%= f.number_field :size, step: "0.01", required: true %>
-
-  <%= f.label :sunlight, "Sunlight Percentage (%)" %>
-  <%= f.number_field :sunlight, step: "1", required: true %>
-
-  <%= f.submit "Submit" %>
+<%= simple_form_for @garden do |f| %>
+  <%= f.input :size, label: "Garden Size (m2)", input_html: { step: "0.01" }, required: true %>
+    <%= f.input :sunlight, label: "Sunlight Percentage (%)", input_html: { step: "1" }, required: true %>
+  <%= f.submit "Enter" %>
 <% end %>
