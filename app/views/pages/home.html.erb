@@ -1,31 +1,43 @@
 <!-- home.html.erb -->
-<div class="main-container">
-  <h1>Welcome to GroPro, your ultimate gardening companion. Our platform empowers garden enthusiasts to cultivate thriving gardens and connect with a vibrant community of fellow gardeners.</h1>
+<div class="home-background">
+  <%= image_tag("blueberries.jpg", alt: "Background Image", class: "background-image") %>
+  <div class="main-container">
+    <div class="text-box">
+      <h1>Welcome to GroPro</h1>
 
-  <h1>Monitor, nurture, and share your gardening journey with ease. Create and manage multiple gardens tailored to your space and preferences. Our intuitive interface and plant monitoring system provide valuable insights, while our AI-powered recommendations help you discover the perfect plants for your location, as well as other information you provide us. Explore our resources, engage in our forum, and join our growing gardening community. Let's cultivate beauty together.</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="filter-buttons">
-        <%= link_to "All", root_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
-        <%= link_to "Fruits", root_path(category: "fruits"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
-        <%= link_to "Vegetables", root_path(category: "vegetables"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
-        <%= link_to "Flowers", root_path(category: "flowers"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
-        <%= link_to "Herbs", root_path(category: "herbs"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
-      </div>
+      <h2>Your ultimate gardening companion. Our platform empowers garden enthusiasts to cultivate thriving gardens and connect with a vibrant community of fellow gardeners.</h2>
+
+      <h2>Monitor, nurture, and share your gardening journey with ease. Create and manage multiple gardens tailored to your space and preferences. Our intuitive interface and plant monitoring system provide valuable insights, while our AI-powered recommendations help you discover the perfect plants for your location, as well as other information you provide us. Explore our resources, engage in our forum, and join our growing gardening community. Let's cultivate beauty together.</h2>
     </div>
   </div>
-  <div class="row">
-    <% @plants.each do |plant| %>
-      <div class="col-md-3">
-        <div class="card">
-          <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "card-img" %><% end %>
-          <div class="card-body">
-            <h2 class="card-title"><%= plant.plant_name %></h2>
+  <div class="empty-container">
+  </div>
+  <div class="main-container">
+    <div class="plant-container">
+      <div class="row">
+        <div class="col">
+        <h1>Plants</h1>
+          <div class="filter-buttons">
+            <%= link_to "All", root_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
+            <%= link_to "Fruits", root_path(category: "fruits"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
+            <%= link_to "Vegetables", root_path(category: "vegetables"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
+            <%= link_to "Flowers", root_path(category: "flowers"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
+            <%= link_to "Herbs", root_path(category: "herbs"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
           </div>
         </div>
       </div>
-    <% end %>
+      <div class="row">
+        <% @plants.each do |plant| %>
+          <div class="col-md-3">
+            <div class="card">
+              <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "card-img" %><% end %>
+              <div class="card-body">
+                <h2 class="card-title"><%= plant.plant_name %></h2>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
