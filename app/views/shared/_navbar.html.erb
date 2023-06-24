@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon">
   <div class="container-fluid d-flex align-items-end justify-content-between">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "gropro_name.png" %>
@@ -12,17 +12,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+        <li class="nav-item <%= "active" if current_page?(root_path) %>">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item <%= 'active' if current_page?(gardens_path) %>">
+        <li class="nav-item <%= "active" if current_page?(gardens_path) %>">
           <%= link_to "Gardens", gardens_path, class: "nav-link" %>
         </li>
-        <li class="nav-item <%= 'active' if current_page?(resources_path) %>">
+        <li class="nav-item <%= "active" if current_page?(resources_path) %>">
           <%= link_to "Resources", resources_path, class: "nav-link" %>
         </li>
-        <li class="nav-item <%= 'active' if current_page?(resources_path) %>">
-          <%= link_to "Forum", resources_path, class: "nav-link" %>
+        <li class="nav-item <%= 'active' if current_page?(forums_path) %>">
+          <%= link_to "Forum", forums_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -32,11 +32,11 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-          <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+          <li class="nav-item <%= "active" if current_page?(new_user_session_path) %>">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
@@ -44,3 +44,4 @@
     </div>
   </div>
 </div>
+<div id="gradient-bar"></div>

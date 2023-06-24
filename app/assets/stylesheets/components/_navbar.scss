@@ -1,17 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: linear-gradient(180deg, #F3EFE0 85%, rgba(243, 239, 224, 0) 100%);
-  height: 150px;
-  width: auto;
+  background: #F3EFE0;
+  height: 120px;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1030;
-
-  .navbar-line {
-    height: 8px;
-    background: linear-gradient(90deg, #90A955, #90A955);
-    border-radius: 4px;
-  }
+  opacity: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -39,4 +34,26 @@
   text-decoration: underline;
 }
 
+#gradient-bar {
+  position: sticky;
+  top: 120px; /* adjust to match the height of your navbar */
+  height: 15px; /* adjust to the desired height of your gradient bar */
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(144, 169, 85, 0.75), rgba(243, 239, 224, 0.5));
+  z-index: 1020; /* lower than your navbar */
+}
 
+.middle-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: 55%;
+}
+
+@media (max-width: 1188px) {
+  .navbar-lewagon .middle-image {
+    display: none;
+  }
+}

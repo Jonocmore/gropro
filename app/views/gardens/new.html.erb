@@ -3,7 +3,11 @@
 <p>Put in Garden details like size and sunlight (Assisted By ChatGPT API) using prompts</p>
 
 
-<%= form_with(model: @garden, url: gardens_path, method: :post) do |f| %>
+<!-- app/views/gardens/new.html.erb -->
+
+<h1>Create a New Garden</h1>
+
+<%= form_for @garden, url: gardens_path, method: :post do |f| %>
   <%= f.label :size, "Garden Size (m2)" %>
   <%= f.number_field :size, step: "0.01", required: true %>
 
