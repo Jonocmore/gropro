@@ -1,7 +1,19 @@
 require "open-uri"
 require "nokogiri"
 
-puts "Creating users"
+# p "Cleaning Database"
+
+# UserResource.destroy_all
+# Message.destroy_all
+# Resource.destroy_all
+# Forum.destroy_all
+# Recommendation.destroy_all
+# GardenPlant.destroy_all
+# Garden.destroy_all
+# Plant.destroy_all
+# User.destroy_all
+
+puts "Creating Users"
 
 User.create(
   first_name: Faker::Name.first_name,
@@ -49,7 +61,7 @@ url = "https://www.growveg.co.za/plants/south-africa"
 html = URI.open(url).read
 doc = Nokogiri::HTML.parse(html, nil, "utf-8")
 
-p "plant"
+p "Creating Plants"
 
 doc.search(".plantIndexCell").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
@@ -90,8 +102,10 @@ doc.search(".plantIndexCell").each do |element|
   plant.save!
 end
 
+puts "#{Plant.all.count} plants created"
+
 # category of plants
-p "herb"
+p "Allocating Herb Category"
 doc.search(".herb").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
   plant = Plant.find_by(plant_name: plant_name)
@@ -99,7 +113,7 @@ doc.search(".herb").each do |element|
   plant.save
 end
 
-p "fruit"
+p "Allocating Fruit Category"
 doc.search(".fruit").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
   plant = Plant.find_by(plant_name: plant_name)
@@ -107,7 +121,7 @@ doc.search(".fruit").each do |element|
   plant.save
 end
 
-p "vegetable"
+p "Allocating Vegetable Category"
 doc.search(".vegetable").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
   plant = Plant.find_by(plant_name: plant_name)
@@ -115,7 +129,7 @@ doc.search(".vegetable").each do |element|
   plant.save
 end
 
-p "flower"
+p "Allocating Flower Category"
 doc.search(".flower").each do |element|
   plant_name = element.search(".plantIndexText").text.strip
   plant = Plant.find_by(plant_name: plant_name)
@@ -125,11 +139,11 @@ end
 
 # Gardens
 
-p "garden"
+p "Creating Gardens"
 
 Garden.create!(
   name: Faker::Lorem.word.capitalize,
-  user_id: rand(1..5),
+  user_id: 1,
   date_planted: Faker::Date.between(from: 2.years.ago, to: Date.today),
   location: "unknown",
   sunlight: rand(0..100),
@@ -139,28 +153,93 @@ Garden.create!(
   updated_at: Time.current,
 )
 
+Garden.create!(
+  name: Faker::Lorem.word.capitalize,
+  user_id: 1,
+  date_planted: Faker::Date.between(from: 2.years.ago, to: Date.today),
+  location: "unknown",
+  sunlight: rand(0..100),
+  size: rand(1..50),
+  outside: [true, false].sample,
+  created_at: Time.current,
+  updated_at: Time.current,
+)
+
+Garden.create!(
+  name: Faker::Lorem.word.capitalize,
+  user_id: 2,
+  date_planted: Faker::Date.between(from: 2.years.ago, to: Date.today),
+  location: "unknown",
+  sunlight: rand(0..100),
+  size: rand(1..50),
+  outside: [true, false].sample,
+  created_at: Time.current,
+  updated_at: Time.current,
+)
+
+Garden.create!(
+  name: Faker::Lorem.word.capitalize,
+  user_id: 2,
+  date_planted: Faker::Date.between(from: 2.years.ago, to: Date.today),
+  location: "unknown",
+  sunlight: rand(0..100),
+  size: rand(1..50),
+  outside: [true, false].sample,
+  created_at: Time.current,
+  updated_at: Time.current,
+)
+
+puts "#{Garden.all.count} Gardens Created"
+
 # GardenPlants
 
 p "garden_plants"
 
-10.times do
-  garden = Garden.order("RANDOM()").first
-  plant = Plant.order("RANDOM()").first
-  user = User.order("RANDOM()").first
+# 10.times do
+#   garden = Garden.order("RANDOM()").first
+#   plant = Plant.order("RANDOM()").first
+#   user = User.order("RANDOM()").first
 
-  GardenPlant.create!(
-    garden: garden,
-    plant: plant,
-    user: user,
-    comment: Faker::Lorem.sentence,
-    planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
-    expected_harvest_date: Faker::Date.forward(days: 60),
-  )
-end
+GardenPlant.create!(
+  garden_id: 1,
+  plant_id: rand(1..246),
+  user_id: 1,
+  comment: Faker::Lorem.sentence,
+  planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+  expected_harvest_date: Faker::Date.forward(days: 60),
+)
+
+GardenPlant.create!(
+  garden_id: 2,
+  plant_id: rand(1..246),
+  user_id: 1,
+  comment: Faker::Lorem.sentence,
+  planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+  expected_harvest_date: Faker::Date.forward(days: 60),
+)
+
+GardenPlant.create!(
+  garden_id: 3,
+  plant_id: rand(1..246),
+  user_id: 2,
+  comment: Faker::Lorem.sentence,
+  planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+  expected_harvest_date: Faker::Date.forward(days: 60),
+)
+
+GardenPlant.create!(
+  garden_id: 4,
+  plant_id: rand(1..246),
+  user_id: 1,
+  comment: Faker::Lorem.sentence,
+  planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
+  expected_harvest_date: Faker::Date.forward(days: 60),
+)
+# end
 
 # Recommendations
 
-p "recommendations"
+p "Creating Recommendations"
 
 10.times do
   Recommendation.create!(
@@ -171,32 +250,62 @@ p "recommendations"
   )
 end
 
+puts "#{Recommendation.all.count} Recommendations Created"
+
 # Forums
 
-p "forums"
+p "Creating Forums"
 
-5.times.map do
-  Forum.create!(
-    name: Faker::Lorem.word.capitalize,
-    user_id: rand(1..5),
-  )
-end
+Forum.create!(
+  name: "Market Place",
+  user_id: 1,
+)
+
+Forum.create!(
+  name: "General",
+  user_id: 2,
+)
+
+Forum.create!(
+  name: "Help",
+  user_id: 3,
+)
+
+puts "#{Forum.all.count} Forums Created"
 
 # Messages
 
-p "messages"
+p "Creating Forum Messages"
 
-10.times do
   Message.create!(
     content: Faker::Lorem.paragraph,
-    forum_id: rand(1..5),
-    user_id: rand(1..5),
+    forum_id: 1,
+    user_id: 1
   )
-end
+
+  Message.create!(
+    content: Faker::Lorem.paragraph,
+    forum_id: 2,
+    user_id: 1
+  )
+
+  Message.create!(
+    content: Faker::Lorem.paragraph,
+    forum_id: 1,
+    user_id: 2
+  )
+
+  Message.create!(
+    content: Faker::Lorem.paragraph,
+    forum_id: 2,
+    user_id: 2
+  )
+
+puts "#{Message.all.count} Messages Created"
 
 # Resources
 
-p "resources"
+p "Creating Resources"
 
 10.times do
   Resource.create!(
@@ -209,14 +318,16 @@ p "resources"
   )
 end
 
+puts "#{Resource.all.count} Resources Created"
+
 # User_resources
 
-p "user_resources"
+p "User_Resources"
 
 10.times do
   UserResource.create!(
     user_id: rand(1..5),
     resource_id: rand(1..10),
-    is_favorite: false
+    is_favorite: false,
   )
 end

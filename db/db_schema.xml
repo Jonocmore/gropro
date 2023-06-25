@@ -38,7 +38,7 @@
       <type label="Inet CIDR Addr" length="0" sql="CIDR" quote="'"/>
       <type label="Geometry" length="0" sql="GEOMETRY" quote="'"/>
     </group>
-  </datatypes><table x="754" y="344" name="users">
+  </datatypes><table x="803" y="301" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -61,7 +61,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="575" y="440" name="gardens">
+<table x="602" y="303" name="gardens">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -91,7 +91,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1068" y="339" name="resources">
+<table x="1202" y="501" name="resources">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -117,7 +117,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="379" y="408" name="plants">
+<table x="303" y="201" name="plants">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -161,7 +161,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="752" y="242" name="forums">
+<table x="1000" y="151" name="forums">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -176,7 +176,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="545" y="244" name="garden_plants">
+<table x="504" y="101" name="garden_plants">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -205,7 +205,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="552" y="706" name="recommendations">
+<table x="606" y="550" name="recommendations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -227,7 +227,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="880" y="343" name="user_resources">
+<table x="950" y="403" name="user_resources">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -246,7 +246,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="897" y="218" name="messages">
+<table x="1202" y="200" name="messages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -256,7 +256,8 @@
 </row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="users" row="id" />
+</row>
 <row name="content" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
