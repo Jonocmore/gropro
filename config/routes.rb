@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :resources, only: %i[index show]
-  resources :forums, only: %i[index show]
+  resources :forums, only: %i[index show] do
+    resources :messages, only: :create
+  end
 end

@@ -1,1 +1,11 @@
 <h1>My Forums Page</h1>
+
+<%# @user_forum.each do |forum| %>
+        <%# <p><#%= link_to forum.name, forum_path(forum) %></p>
+        <%# <hr style='color: white;'>
+      <#% end %>
+
+
+      <% @forum.each do |forum|  %>
+       <p><%= link_to forum.name, forum_path(forum) %></p>
+       <% end %>
