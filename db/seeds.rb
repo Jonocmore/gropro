@@ -123,6 +123,56 @@ doc.search(".flower").each do |element|
   plant.save
 end
 
+p "popular"
+
+plant_vegetable = Plant.find_by(plant_name: 'Tomato (Regular)')
+plant_vegetable.popular = true
+plant_vegetable.save
+
+plant_vegetable = Plant.find_by(plant_name: 'Beans (Dry)')
+plant_vegetable.popular = true
+plant_vegetable.save
+
+plant_vegetable = Plant.find_by(plant_name: 'Chilli Pepper')
+plant_vegetable.popular = true
+plant_vegetable.save
+
+plant_fruit = Plant.find_by(plant_name: 'Apple (Cordon)')
+plant_fruit.popular = true
+plant_fruit.save
+
+plant_fruit = Plant.find_by(plant_name: 'Nectarine (Dwarf)')
+plant_fruit.popular = true
+plant_fruit.save
+
+plant_fruit = Plant.find_by(plant_name: 'Orange')
+plant_fruit.popular = true
+plant_fruit.save
+
+plant_herb = Plant.find_by(plant_name: 'Parsley')
+plant_herb.popular = true
+plant_herb.save
+
+plant_herb = Plant.find_by(plant_name: 'Basil')
+plant_herb.popular = true
+plant_herb.save
+
+plant_herb = Plant.find_by(plant_name: 'Oregano')
+plant_herb.popular = true
+plant_herb.save
+
+plant_flower = Plant.find_by(plant_name: 'Rose')
+plant_flower.popular = true
+plant_flower.save
+
+plant_flower = Plant.find_by(plant_name: 'Cornflower')
+plant_flower.popular = true
+plant_flower.save
+
+plant_flower = Plant.find_by(plant_name: 'Daylily')
+plant_flower.popular = true
+plant_flower.save
+
 # Gardens
 
 p "garden"
