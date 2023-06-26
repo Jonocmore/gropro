@@ -6,11 +6,14 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  padding-left: 15rem;
+  padding-right: 15rem;
 
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+
   }
 
   .messages {

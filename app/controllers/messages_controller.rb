@@ -6,7 +6,12 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      redirect_to forum_path(@forum)
+      ForumChannel.broadcast_to(
+        @forum,
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.user.id
+      )
+      head :ok
     else
       render "forums/show", status: :unprocessable_entity
     end
