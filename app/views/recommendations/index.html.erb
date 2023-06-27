@@ -1,11 +1,13 @@
 <h1>Garden Recommendations</h1>
 
-<% if @recommendations.present? %>
-  <ul>
+<%# <% if @recommendations.present? %>
+  <%# <ul>
     <% @recommendations.each do |recommendation| %>
-      <li><%= recommendation.name %></li>
-    <% end %>
-  </ul>
+      <%# <li><%= recommendation.name %></li>
+    <%# <% end %>
+  <%# </ul>
 <% else %>
-  <p>No recommendations available.</p>
+  <%# <p>No recommendations available.</p>
 <% end %>
+
+<%= @result %>

@@ -2,6 +2,9 @@ class GardensController < ApplicationController
   def index
     @user = current_user
     @gardens = Garden.where(user_id: @user)
+    if params[:message]
+      @response = ChatgptService.call("What is your name?")
+    end
   end
 
   def show
@@ -31,9 +34,35 @@ class GardensController < ApplicationController
     end
   end
 
+  # def get_advice
+  #   # Get and validate user input
+  #   garden_name = params[:name]
+  #   location = params[:location]
+  #   outside = params[:outside]
+  #   garden_size = params[:size]
+  #   sunlight = params[:sunlight]
+  #   additional_info = params[:additional_info]
+
+  #   if garden_name.blank? || garden_size.blank?
+  #     return render json: { error: "Garden name and garden size are required." }, status: :bad_request
+  #   end
+
+  #   # Format the prompt
+  #   prompt = "I need advice on how to grow #{garden_name} in a #{garden_size} garden."
+
+  #   # Use the service to get the AI's response
+  #   @result = OpenAiService.new(prompt: prompt).call
+
+  #   if result[:error]
+  #     render json: { error: @result[:error] }, status: :internal_server_error
+  #   else
+  #     render json: { advice: @result[:response] }
+  #   end
+  # end
+
   private
 
   def garden_params
-    params.require(:garden).permit(:size, :percentage)
+    params.require(:garden).permit(:size, :sunlight, :name, :location, :outside, :additional_info)
   end
 end
