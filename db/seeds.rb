@@ -252,7 +252,7 @@ p "garden_plants"
 
 GardenPlant.create!(
   garden_id: 1,
-  plant_id: rand(1..246),
+  plant_id: rand(1..244),
   user_id: 1,
   comment: Faker::Lorem.sentence,
   planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
@@ -261,7 +261,7 @@ GardenPlant.create!(
 
 GardenPlant.create!(
   garden_id: 2,
-  plant_id: rand(1..246),
+  plant_id: rand(1..244),
   user_id: 1,
   comment: Faker::Lorem.sentence,
   planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
@@ -270,7 +270,7 @@ GardenPlant.create!(
 
 GardenPlant.create!(
   garden_id: 3,
-  plant_id: rand(1..246),
+  plant_id: rand(1..244),
   user_id: 2,
   comment: Faker::Lorem.sentence,
   planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
@@ -279,7 +279,7 @@ GardenPlant.create!(
 
 GardenPlant.create!(
   garden_id: 4,
-  plant_id: rand(1..246),
+  plant_id: rand(1..244),
   user_id: 1,
   comment: Faker::Lorem.sentence,
   planting_date: Faker::Date.between(from: 1.year.ago, to: Date.today),
@@ -293,7 +293,7 @@ p "Creating Recommendations"
 
 10.times do
   Recommendation.create!(
-    plant_id: rand(1..246),
+    plant_id: rand(1..244),
     text: Faker::Lorem.paragraph,
     trigger_conditions: Faker::Lorem.sentence,
     garden_id: Garden.order("RANDOM()").first.id || 1,
