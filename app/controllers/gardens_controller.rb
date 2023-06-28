@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+
 class GardensController < ApplicationController
   def index
     @user = current_user

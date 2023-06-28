@@ -83,3 +83,4 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem "pg_search"
 gem 'httparty'
+gem 'openai'
