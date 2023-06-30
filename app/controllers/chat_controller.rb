@@ -1,7 +1,7 @@
 class ChatController < ApplicationController
-  def index
+  def chat
     @garden_types = Plant.all
-    api_key = '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'
+    api_key = ENV.fetch("OPENAI_ACCESS_KEY")
     user_message = "what is your name?"
 
     uri = URI('https://api.openai.com/v1/chat/completions')

@@ -1,3 +1,5 @@
+<h1>Hi</h1>
+
 <div id="chatbox">
   <div id="messages">
   </div>
@@ -24,9 +26,8 @@
       document.querySelector('#messageInput').value = '';
     });
   });
-
 </script>
-<h1>Hi</h1>
+
   <form id="gardenTypeForm">
     <label for="garden_type">Choose a garden type:</label>
     <select id="garden_type" name="garden_type">
@@ -37,7 +38,7 @@
     <input type="submit" value="Get recommendations">
   </form>
 
-  <script>
+<script>
   document.querySelector('#gardenTypeForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let gardenType = document.querySelector('#garden_type').value;

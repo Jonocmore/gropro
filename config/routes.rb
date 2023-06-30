@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :resources, only: %i[index show]
-  resources :chat, only: %i[index show]
+  # resources :chat, only: %i[index show]
+  get 'chat/index'
+  post 'chat', to: 'chat#chat'
   resources :forums, only: %i[index show] do
     resources :messages, only: :create
   end
