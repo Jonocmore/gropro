@@ -1,23 +1,39 @@
-<h1>Create Your Garden</h1>
+<div class="main-container">
+  <h1 class="plant-heading">Create Your Garden</h1>
 
-<%= form_for @garden do |f| %>
-  <%= f.label :name, "Garden Name" %>
-  <%= f.text_field :name, required: true %>
+  <%= form_for @garden, html: { class: 'garden-form' } do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Garden Name", class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-input', required: true %>
+    </div>
 
-  <%= f.label :location, "Location" %>
-  <%= f.text_field :location, required: true %>
+    <div class="form-group">
+      <%= f.label :location, "Location", class: 'form-label' %>
+      <%= f.text_field :location, class: 'form-input', required: true %>
+    </div>
 
-  <%= f.label :outside, "Inside/Outside" %>
-  <%= f.select :outside, ["Inside", "Outside"], required: true %>
+    <div class="form-group">
+      <%= f.label :outside, "Inside/Outside", class: 'form-label' %>
+      <%= f.select :outside, ["Inside", "Outside"], class: 'form-select', required: true %>
+    </div>
 
-  <%= f.label :size, "Garden Size (m2)" %>
-  <%= f.number_field :size, step: "0.01", required: true %>
+    <div class="form-group">
+      <%= f.label :size, "Garden Size (m2)", class: 'form-label' %>
+      <%= f.number_field :size, step: "0.01", class: 'form-input', required: true %>
+    </div>
 
-  <%= f.label :sunlight, "Sunlight Percentage (%)" %>
-  <%= f.number_field :sunlight, step: "10", required: true %>
+    <div class="form-group">
+      <%= f.label :sunlight, "Sunlight Percentage (%)", class: 'form-label' %>
+      <%= f.number_field :sunlight, step: "10", class: 'form-input', required: true %>
+    </div>
 
-  <%= f.label :additional_info, "Additional Info" %>
-  <%= f.text_field :additional_info %>
+    <div class="form-group">
+      <%= f.label :additional_info, "Additional Info", class: 'form-label' %>
+      <%= f.text_field :additional_info, class: 'form-input' %>
+    </div>
 
-  <%= f.submit "Create Garden" %>
-<% end %>
+    <div class="form-group">
+      <%= f.submit "Create Garden", class: 'form-submit' %>
+    </div>
+  <% end %>
+</div>
