@@ -1,18 +1,16 @@
-<!-- gardens/show.html.erb -->
-<h1>Gardens Plants Recommendation Show Page</h1>
-
-<!-- app/views/gardens/show.html.erb -->
-
 <h1>Garden Details</h1>
 
 <!-- Display garden details -->
 <% if @garden %>
   <p>Garden Size: <%= @garden.size %> m2</p>
-  <p>Sunlight Percentage: <%= @garden.sunlight %>%</p>
+  <p>Sunlight Percentage: <%= @garden.sunlight %> %</p>
+
+  <!-- Display recommended plants -->
+  <h2>Recommended Plants:</h2>
+  <% @valid_plants.each do |plant| %>
+    <p><%= plant %></p>
+  <% end %>
+
 <% else %>
   <p>Garden Plants not found.</p>
 <% end %>
-
-<!-- Rest of the view code -->
-
-<p>Not Limited To Choose Any Plant Suggested By Clicking a (+) Plus Sign To Add Plants In My Gardern</p>

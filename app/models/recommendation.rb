@@ -1,6 +1,7 @@
 class Recommendation < ApplicationRecord
   belongs_to :garden
   attribute :sunlight, :decimal
+  belongs_to :plant
 
   # def self.create_from_garden(garden)
   #   # Generate recommendations based on garden parameters

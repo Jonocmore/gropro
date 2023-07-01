@@ -1,21 +1,23 @@
-<h1>Enter Details For Your Garden</h1>
+<h1>Create Your Garden</h1>
 
-<p>Put in Garden details like size and sunlight (Assisted By ChatGPT API) using prompts</p>
+<%= form_for @garden do |f| %>
+  <%= f.label :name, "Garden Name" %>
+  <%= f.text_field :name, required: true %>
 
+  <%= f.label :location, "Location" %>
+  <%= f.text_field :location, required: true %>
 
-<!-- app/views/gardens/new.html.erb -->
-<%= simple_form_for @garden do |f| %>
-  <%= f.input :name, label: "Garden Name", required: true %>
+  <%= f.label :outside, "Inside/Outside" %>
+  <%= f.select :outside, ["Inside", "Outside"], required: true %>
 
-  <%= f.input :location, label: "Location", as: :text, required: true %>
+  <%= f.label :size, "Garden Size (m2)" %>
+  <%= f.number_field :size, step: "0.01", required: true %>
 
-  <%= f.input :outside, label: "Inside/Outside", collection: ["Inside", "Outside"], required: true %>
+  <%= f.label :sunlight, "Sunlight Percentage (%)" %>
+  <%= f.number_field :sunlight, step: "10", required: true %>
 
-  <%= f.input :size, label: "Garden Size (m2)", input_html: { step: "0.01" }, required: true %>
+  <%= f.label :additional_info, "Additional Info" %>
+  <%= f.text_field :additional_info %>
 
-  <%= f.input :sunlight, label: "Sunlight Percentage (%)", input_html: { step: "10" }, required: true %>
-
-  <%= f.input :additional_info, label: "Additional Info", as: :text, required: false %>
-
-  <%= f.submit "Enter" %>
+  <%= f.submit "Create Garden" %>
 <% end %>
