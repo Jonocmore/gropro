@@ -357,16 +357,105 @@ puts "#{Message.all.count} Messages Created"
 
 p "Creating Resources"
 
-10.times do
   Resource.create!(
-    title: Faker::Book.title,
-    text: Faker::Lorem.paragraph,
-    author: Faker::Book.author,
+    title: 'You & Your Garden - The Benefits of Gardening',
+    text: '',
+    author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "pdf",
-    url: Faker::Internet.url,
+    file_type: "benefits_of_garden_resource.png",
+    url: 'https://gardening.co.za/pages/benefits-of-gardening'
   )
-end
+
+  Resource.create!(
+    title: 'Potato Grow & Care Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "potato_resource.png",
+    url: 'https://gardening.co.za/pages/potato-grow-care-guides'
+  )
+
+  Resource.create!(
+    title: 'Green House Growing Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "greenhouse_resource.png",
+    url: 'https://gardening.co.za/pages/growing-in-green-houses-guides'
+  )
+
+  Resource.create!(
+    title: 'Vermiculture & Worm Farming',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "worm_resource.png",
+    url: 'https://gardening.co.za/pages/vermiculture-worm-farming-guides'
+  )
+
+  Resource.create!(
+    title: 'Tomato Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "tomato_resource.png",
+    url: 'https://gardening.co.za/pages/tomato-grow-care-guides'
+  )
+
+  Resource.create!(
+    title: 'Citrus & Fruit Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "citrus_resource.png",
+    url: 'https://gardening.co.za/pages/citrus-fruit-guides'
+  )
+
+  Resource.create!(
+    title: 'Weed Control',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "weed_resource.png",
+    url: 'https://gardening.co.za/pages/weed-control'
+  )
+
+  Resource.create!(
+    title: 'Herb & Veggie Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "herb_resource.png",
+    url: 'https://gardening.co.za/pages/herb-veggie-guides'
+  )
+
+  Resource.create!(
+    title: 'Farming Gods Way',
+    text: '',
+    author: 'farming-gods-way.org',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "farming.png",
+    url: 'https://www.farming-gods-way.org/vegetable_guide.htm'
+  )
+
+  Resource.create!(
+    title: 'Flower Growing & Care Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "flower_resource.png",
+    url: 'https://gardening.co.za/pages/flower-growing-care-guides'
+  )
+
+
+
+
+
+
+
+
+
+
 
 puts "#{Resource.all.count} Resources Created"
 
