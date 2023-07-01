@@ -1,5 +1,3 @@
-require_relative '../../config/openai_config'
-
 require 'net/http'
 require 'uri'
 require 'json'
