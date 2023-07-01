@@ -362,7 +362,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "benefits_of_garden_resource.png",
     url: 'https://gardening.co.za/pages/benefits-of-gardening'
   )
 
@@ -371,7 +371,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "potato_resource.png",
     url: 'https://gardening.co.za/pages/potato-grow-care-guides'
   )
 
@@ -380,7 +380,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "greenhouse_resource.png",
     url: 'https://gardening.co.za/pages/growing-in-green-houses-guides'
   )
 
@@ -389,7 +389,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "worm_resource.png",
     url: 'https://gardening.co.za/pages/vermiculture-worm-farming-guides'
   )
 
@@ -398,7 +398,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "tomato_resource.png",
     url: 'https://gardening.co.za/pages/tomato-grow-care-guides'
   )
 
@@ -407,7 +407,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "citrus_resource.png",
     url: 'https://gardening.co.za/pages/citrus-fruit-guides'
   )
 
@@ -416,7 +416,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "weed_resource.png",
     url: 'https://gardening.co.za/pages/weed-control'
   )
 
@@ -425,7 +425,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "herb_resource.png",
     url: 'https://gardening.co.za/pages/herb-veggie-guides'
   )
 
@@ -434,7 +434,7 @@ p "Creating Resources"
     text: '',
     author: 'farming-gods-way.org',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "farming.png",
     url: 'https://www.farming-gods-way.org/vegetable_guide.htm'
   )
 
@@ -443,7 +443,7 @@ p "Creating Resources"
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "link",
+    file_type: "flower_resource.png",
     url: 'https://gardening.co.za/pages/flower-growing-care-guides'
   )
 
