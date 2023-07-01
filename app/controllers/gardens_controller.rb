@@ -301,8 +301,6 @@ class GardensController < ApplicationController
     end
   end
 
-
-
   def show
     @garden = Garden.find(params[:id])
     @plants = Plant.search(params[:query]) if params[:query].present?
@@ -315,9 +313,6 @@ class GardensController < ApplicationController
       @recommendation.plant_id = @selected_plant.id
     end
   end
-
-
-
 
   private
 

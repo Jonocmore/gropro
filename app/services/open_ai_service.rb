@@ -43,21 +43,8 @@ class OpenAiService
     response_body = JSON.parse(response.body)
     response_text = response_body['choices'][0]['message']['content']
 
-     # Assuming the response text is a list of plant names separated by commas
-     recommended_plants = response_text.split(', ')
-     recommended_plants
-
-    #  puts "Recommended plants: #{recommended_plants}"  # Add this line
-
-    #  # Get the list of plant names from the database
-    #  plants = Plant.all.pluck(:plant_name)
-
-    #  # Check each recommended plant to see if it's in the list from the database
-    #  valid_plants = recommended_plants.select { |plant| plants.include?(plant) }
-
-    #  puts "Valid plants: #{valid_plants}"  # Add this line
-
-    #  # Respond with the valid plant names
-    #  {message: valid_plants.join(', ')}
+    # Assuming the response text is a list of plant names separated by commas
+    recommended_plants = response_text.split(', ')
+    recommended_plants
   end
 end
