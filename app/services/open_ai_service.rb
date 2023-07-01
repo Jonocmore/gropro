@@ -12,7 +12,7 @@ class OpenAiService
   def call
     uri = URI('https://api.openai.com/v1/chat/completions')
     request = Net::HTTP::Post.new(uri)
-    request["Authorization"] = "Bearer #{OPENAI_API_KEY}"
+    request["Authorization"] = "Bearer #{ENV['OPENAI_API_KEY']}"
     request.content_type = 'application/json'
     request.body = JSON.dump({
       "model": "gpt-3.5-turbo",
