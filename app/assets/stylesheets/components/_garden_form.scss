@@ -1,0 +1,44 @@
+.garden-form {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .form-input,
+  .form-select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .form-input:focus,
+  .form-select:focus {
+    border-color: #90A955;
+    outline: none;
+  }
+
+  .form-submit {
+    background-color: #90A955;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #4F772D;
+    }
+  }
+}

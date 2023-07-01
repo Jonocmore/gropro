@@ -1,13 +1,20 @@
-<h1>My Gardens Page</h1>
+<div class="main-container">
+  <h1>My Gardens Page</h1>
+  <p>List Of My Gardens Which Have Created as a User</p>
 
+  <% @gardens.each do |garden| %>
+    <div class="garden-card">
+      <div class="garden-card-body">
+        <h5 class="garden-card-title"><%= garden.name %></h5>
+        <p class="garden-card-text">Size: <%= garden.size %></p>
+        <p class="garden-card-text">Location: <%= garden.location %></p>
+        <p class="card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
+        <div class="sun" style="--sunlight: <%= garden.sunlight %>;"></div>
+      </div>
+    </div>
+  <% end %>
 
-<p>List Of My Gardens Which Have Created as a User</p>
-
-
-
-<% @gardens.each do |garden| %>
-  <%= garden.size %>
-<% end %>
-<p>I Can Opt To Create A New Garden</p>
-<%= link_to "Create New Garden", new_garden_path, class: "btn btn-primary" %>
-<p><%= @response %></p>
+  <p>I Can Opt To Create A New Garden</p>
+  <%= link_to "Create New Garden", new_garden_path, class: "btn btn-primary" %>
+  <p><%= @response %></p>
+</div>
