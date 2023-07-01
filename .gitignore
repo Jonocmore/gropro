@@ -46,4 +46,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-/config/openai_config.rb
+/openai_config.rb
