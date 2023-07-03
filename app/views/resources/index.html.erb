@@ -10,7 +10,7 @@
             <h1 class="test">Resources</h1>
             <div class="row justify-content-center">
               <div class="col-sm-8 my-3">
-                <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+                <%= form_with url: resources_path, method: :get, class: "d-flex" do %>
                   <%= text_field_tag :query,
                       params[:query],
                       class: "form-control",
@@ -21,21 +21,19 @@
               </div>
             </div>
             <div class="filter-buttons">
-              <%= link_to "Most Popular", root_path(category: "popular"), class: "btn btn-primary filter-button #{params[:category] == "popular" ? "active" : ""}" %>
-              <%= link_to "All", root_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
-              <%= link_to "Fruits", root_path(category: "fruit"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
-              <%= link_to "Vegetables", root_path(category: "vegetable"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
-              <%= link_to "Flowers", root_path(category: "flower"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
-              <%= link_to "Herbs", root_path(category: "herb"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
+              <%= link_to "Most Popular", resources_path(popular: true), class: "btn btn-primary filter-button #{params[:popular] == true ? "active" : ""}" %>
+              <%= link_to "All", resources_path, class: "btn btn-primary filter-button #{params[:popular].blank? ? "active" : ""}" %>
             </div>
           </div>
         </div>
 <div class="resource_cards mt-3 ">
     <% @resources.each do |resource| %>
 
-      <%= link_to resource.url do %><%= image_tag resource.file_type, class:"card-category" %><%= resource.title %><% end %>
+    <div class="card-category" style="background: url(<%= asset_path resource.file_type %>)">
+    <div class="card-title"><%= link_to resource.url do %><%= resource.title %><% end %></div>
 
 
+      </div>
     <% end %>
   </div>
 
