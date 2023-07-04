@@ -39,10 +39,10 @@
       <div class="row">
         <% @plants.each do |plant| %>
           <div class="col-md-3">
-            <div class="card">
-              <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "card-img" %><% end %>
-              <div class="card-body">
-                <h4 class="card-title"><%= plant.plant_name %></h4>
+            <div class="plant-card">
+              <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "planr-card-img" %><% end %>
+              <div class="plant-card-body">
+                <h2 class="plant-card-title"><%= plant.plant_name %></h2>
               </div>
             </div>
           </div>

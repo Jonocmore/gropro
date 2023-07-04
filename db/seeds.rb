@@ -358,39 +358,43 @@ puts "#{Message.all.count} Messages Created"
 p "Creating Resources"
 
   Resource.create!(
-    title: 'You & Your Garden - The Benefits of Gardening',
+    title: 'Benefits of Gardening',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "benefits_of_garden_resource.png",
-    url: 'https://gardening.co.za/pages/benefits-of-gardening'
+    url: 'https://gardening.co.za/pages/benefits-of-gardening',
+    popular: true
   )
 
   Resource.create!(
-    title: 'Potato Grow & Care Guides',
+    title: 'Potato Grow',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "potato_resource.png",
-    url: 'https://gardening.co.za/pages/potato-grow-care-guides'
+    url: 'https://gardening.co.za/pages/potato-grow-care-guides',
+    popular: false
   )
 
   Resource.create!(
-    title: 'Green House Growing Guides',
+    title: 'Green House Growing',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "greenhouse_resource.png",
-    url: 'https://gardening.co.za/pages/growing-in-green-houses-guides'
+    url: 'https://gardening.co.za/pages/growing-in-green-houses-guides',
+    popular: true
   )
 
   Resource.create!(
-    title: 'Vermiculture & Worm Farming',
+    title: 'Worm Farming',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "worm_resource.png",
-    url: 'https://gardening.co.za/pages/vermiculture-worm-farming-guides'
+    url: 'https://gardening.co.za/pages/vermiculture-worm-farming-guides',
+    popular: false
   )
 
   Resource.create!(
@@ -399,16 +403,18 @@ p "Creating Resources"
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "tomato_resource.png",
-    url: 'https://gardening.co.za/pages/tomato-grow-care-guides'
+    url: 'https://gardening.co.za/pages/tomato-grow-care-guides',
+    popular: true
   )
 
   Resource.create!(
-    title: 'Citrus & Fruit Guides',
+    title: 'Citrus & Fruit',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "citrus_resource.png",
-    url: 'https://gardening.co.za/pages/citrus-fruit-guides'
+    url: 'https://gardening.co.za/pages/citrus-fruit-guides',
+    popular: false
   )
 
   Resource.create!(
@@ -417,16 +423,18 @@ p "Creating Resources"
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "weed_resource.png",
-    url: 'https://gardening.co.za/pages/weed-control'
+    url: 'https://gardening.co.za/pages/weed-control',
+    popular: true
   )
 
   Resource.create!(
-    title: 'Herb & Veggie Guides',
+    title: 'Herb & Veggies',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "herb_resource.png",
-    url: 'https://gardening.co.za/pages/herb-veggie-guides'
+    url: 'https://gardening.co.za/pages/herb-veggie-guides',
+    popular: false
   )
 
   Resource.create!(
@@ -435,25 +443,99 @@ p "Creating Resources"
     author: 'farming-gods-way.org',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "farming.png",
-    url: 'https://www.farming-gods-way.org/vegetable_guide.htm'
+    url: 'https://www.farming-gods-way.org/vegetable_guide.htm',
+    popular: true
   )
 
   Resource.create!(
-    title: 'Flower Growing & Care Guides',
+    title: 'Flower Guides',
     text: '',
     author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
     file_type: "flower_resource.png",
-    url: 'https://gardening.co.za/pages/flower-growing-care-guides'
+    url: 'https://gardening.co.za/pages/flower-growing-care-guides',
+    popular: false
   )
 
+  Resource.create!(
+    title: 'Eco Composting',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "eco_resource.png",
+    url: 'https://gardening.co.za/pages/eco-composting-guides',
+    popular: false
+  )
 
+  Resource.create!(
+    title: 'Raised Garden Beds',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "bed_resource.png",
+    url: 'https://gardening.co.za/pages/raised-garden-beds-grow-bag-guides',
+    popular: false
+  )
 
+  Resource.create!(
+    title: 'Chilli Peppers',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "chilli_resource.png",
+    url: 'https://gardening.co.za/pages/chilli-pepper-guides',
+    popular: false
+  )
 
+  Resource.create!(
+    title: 'Pest Control',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "pest_resource.png",
+    url: 'https://gardening.co.za/pages/pest-control-guides',
+    popular: true
+  )
 
+  Resource.create!(
+    title: 'Indoor Plants',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "indoor_resource.png",
+    url: 'https://gardening.co.za/pages/indoor-plant-guides',
+    popular: false
+  )
 
+  Resource.create!(
+    title: 'Seed And Seedlings',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "seed_resource.png",
+    url: 'https://gardening.co.za/pages/seed-seedling-guides',
+    popular: true
+  )
 
+  Resource.create!(
+    title: 'Succulent Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "succulent_resource.png",
+    url: 'https://gardening.co.za/pages/seed-seedling-guides',
+    popular: false
+  )
 
+  Resource.create!(
+    title: 'Soil Care',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "soil_resource.png",
+    url: 'https://gardening.co.za/pages/soil-care-guides',
+    popular: true
+  )
 
 
 
