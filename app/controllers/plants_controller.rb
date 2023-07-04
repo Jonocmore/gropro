@@ -20,6 +20,10 @@ class PlantsController < ApplicationController
   end
 
   def show
+    # plant = Plant.find(params[:id])
+    # @plant_name = plant.plant_name
+    # @plant_image = plant.plant_image
+    # @plant_name, @plant_image = PlantService.get_plant_name_and_image(params[:id])
   end
 
   private

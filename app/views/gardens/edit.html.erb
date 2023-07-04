@@ -1,0 +1,36 @@
+<h1>Edit Garden</h1>
+<%= form_with(model: @garden, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :outside %>
+    <%= form.text_field :outside %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sunlight %>
+    <%= form.number_field :sunlight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :additional_info %>
+    <%= form.number_field :additional_info %>
+  </div>
+
+  <%= form.submit "Update Garden" %>
+<% end %>
+
+<%= link_to "Back", gardens_path %>

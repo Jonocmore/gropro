@@ -10,6 +10,8 @@
         <p class="garden-card-text">Location: <%= garden.location %></p>
         <p class="card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
         <div class="sun" style="--sunlight: <%= garden.sunlight %>;"></div>
+        <%= link_to "Show", garden_path(garden), class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_garden_path(garden), class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
