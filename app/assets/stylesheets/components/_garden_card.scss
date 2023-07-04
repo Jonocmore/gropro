@@ -1,24 +1,59 @@
-.garden-card {
-  margin: 1rem;
-  border: 1px solid #ccc;
+.card {
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #90A955;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  .garden-card-body {
+  border-width: 8px;
+  padding: 30px; // Adjust this to change the size of your "border".
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.01); // Change color and alpha transparency to suit your design needs.
+    z-index: 0;
+  }
+
+  .garden-card {
+    background: #F3EFE0; // Or whatever color you want the inside of the card to be.
+    position: relative;
+    z-index: 1;
     padding: 1rem;
-  }
-  .garden-card-title {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  .garden-card-text {
-    margin-bottom: 0.5rem;
+
+    .garden-card-body {
+      padding: 1rem;
+    }
+
+    .garden-card-title {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .garden-card-text {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
-.sun {
-  width: 3rem;
-  height: 3rem;
-  background: radial-gradient(circle at 50% 50%, yellow calc(var(--sunlight, 0) * 1%), transparent calc(var(--sunlight, 0) * 1%));
-  border-radius: 50%;
+.sun-icon {
+  width: 10rem;
+  height: 10rem;
+}
+
+.garden-details {
+  flex: 1 0 0;
+}
+
+.sun-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

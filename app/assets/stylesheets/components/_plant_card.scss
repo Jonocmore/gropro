@@ -1,0 +1,33 @@
+.plant-card {
+  margin-top: 1rem; // adjust as needed
+  margin-bottom: 1rem; // adjust as needed
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+  .plant-card-img {
+    width: 100%;
+    height: auto;
+    transition: transform .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .plant-card-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // semi-transparent black
+    color: #fff; // white text
+    padding: 10px;
+
+    h2.plant-card-title {
+      margin: 0;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+}
