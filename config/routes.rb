@@ -4,11 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :gardens do
-    member do
-      post "add_plant" # Route for adding a plant to a garden
-      delete "remove_plant_from_garden" # Route for removing a plant from a garden
-    end
+  resources :gardens, except: [:destroy] do
     resources :recommendations, only: %i[index create show]
     resources :plants, only: %i[index show destroy]
   end
