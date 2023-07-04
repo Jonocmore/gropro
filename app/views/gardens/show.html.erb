@@ -2,8 +2,86 @@
 
 <!-- Display garden details -->
 <% if @garden %>
+  <p>Garden Name: <%= @garden.name %></p>
   <p>Garden Size: <%= @garden.size %> m2</p>
   <p>Sunlight Percentage: <%= @garden.sunlight %> %</p>
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: garden_path(@garden), method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+                           params[:query],
+                           class: "form-control",
+                           placeholder: "Type a keyword" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-buttons">
+    <%= link_to "All", garden_path, class: "btn btn-primary filter-button #{params[:category].blank? ? "active" : ""}" %>
+    <%= link_to "Fruits", garden_path(category: "fruit"), class: "btn btn-primary filter-button #{params[:category] == "fruits" ? "active" : ""}" %>
+    <%= link_to "Vegetables", garden_path(category: "vegetable"), class: "btn btn-primary filter-button #{params[:category] == "vegetables" ? "active" : ""}" %>
+    <%= link_to "Flowers", garden_path(category: "flower"), class: "btn btn-primary filter-button #{params[:category] == "flowers" ? "active" : ""}" %>
+    <%= link_to "Herbs", garden_path(category: "herb"), class: "btn btn-primary filter-button #{params[:category] == "herbs" ? "active" : ""}" %>
+    <%= link_to "Recommended", garden_path(category: "recommended"), class: "btn btn-primary filter-button #{params[:category] == "recommended" ? "active" : ""}" %>
+  </div>
+  <div class="row">
+        <% @plants.each do |plant| %>
+          <div class="col-md-3">
+            <div class="card">
+              <%= link_to garden_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "card-img" %><% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= plant.plant_name %></h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  <div class="row">
+    <% if @valid_plants.present? %>
+      <% @valid_plants.each do |plant| %>
+        <div class="plant-card">
+          <div class="plant-card-body">
+            <h5 class="plant-card-title"><%= plant.plant_name %></h5>
+            <%= link_to garden_path(plant), data: { turbo: :false } do %>
+              <%= image_tag plant.plant_image, class: "card-img" %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="card-title"><%= plant.plant_name %></h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No valid plants found.</p>
+  <% end %>
+
+  <div class="search-results">
+    <% if @plants.any? %>
+      <% @plants.each do |plant| %>
+        <div class="plant-card">
+          <div class="plant-card-body">
+            <h5 class="plant-card-title"><%= plant.plant_name %></h5>
+            <%= link_to garden_path(plant), data: { turbo: :false } do %>
+              <%= image_tag plant.plant_image, class: "card-img" %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="card-title"><%= plant.plant_name %></h2>
+              <%= link_to "+", add_plant_garden_path(@garden, plant), method: :post, class: "add-plant" %>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    <% else %>
+      <p>No plants found.</p>
+    <% end %>
+  </div>
+   <%= link_to "Back to Gardens", gardens_path, class: "btn btn-primary" %>
+  <%= link_to "delete", garden_path(@garden), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<% end %>
 
   <!-- Display recommended plants -->
   <h2>Recommended Plants:</h2>
