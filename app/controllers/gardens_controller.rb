@@ -303,16 +303,59 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
-    @plants = Plant.search(params[:query]) if params[:query].present?
+    @garden_plants = @garden.plants
     @recommendations = @garden.recommendations
     @valid_plants = @recommendations.map { |recommendation| recommendation.plant.plant_name }
     @recommendation = Recommendation.new
-    # raise
     if params[:plant_id].present?
       @selected_plant = Plant.find(params[:plant_id])
       @recommendation.plant_id = @selected_plant.id
     end
+    category = params[:category]
+
+    if params[:query].present?
+      @plants = Plant.search_by_plant_name(params[:query])
+    else
+      @plants = if category.present?
+        if category == 'popular'
+          Plant.where(popular: true)
+        elsif category == 'recommended'
+          Plant.where(plant_name: @valid_plants)
+        else
+          Plant.where(category: category)
+        end
+      else
+        Plant.order(:plant_name)
+      end
+    end
   end
+
+  def add_plant
+    @garden = Garden.find(params[:id])
+    @plant = Plant.find(params[:plant_id])
+    @garden.plants << @plant
+
+    if @garden.save
+      redirect_to @garden, notice: 'Plant added to garden successfully!'
+    else
+      redirect_to @garden, alert: 'Failed to add plant to garden.'
+    end
+  end
+
+  def add_to_garden
+    @garden = Garden.find(params[:garden_id])
+    @plant = Plant.find(params[:plant_id])
+
+    unless @garden.plants.include?(@plant)
+      @garden.garden_plants.create(plant: @plant, user: current_user) # <- Creating the GardenPlant association here
+      flash[:success] = "Plant added to garden"
+    else
+      flash[:error] = "This plant is already in your garden"
+    end
+
+    redirect_to garden_path(@garden)
+  end
+
 
   private
 
