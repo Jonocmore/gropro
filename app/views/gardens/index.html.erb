@@ -3,13 +3,27 @@
   <p>List Of My Gardens Which Have Created as a User</p>
 
   <% @gardens.each do |garden| %>
-    <div class="garden-card">
-      <div class="garden-card-body">
-        <h5 class="garden-card-title"><%= garden.name %></h5>
-        <p class="garden-card-text">Size: <%= garden.size %></p>
-        <p class="garden-card-text">Location: <%= garden.location %></p>
-        <p class="card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
-        <div class="sun" style="--sunlight: <%= garden.sunlight %>;"></div>
+    <%# Randomly select an image for each card's border %>
+    <% border_image = ["plants_1.jpg", "plants_2", "plants_3", "plants_4.jpg", "plants_5", "plants_6", "plants_7.jpg", "plants_8", "plants_9", "plants_10.jpg", "plants_11", "plants_12", "plants_13.jpg", "plants_14", "plants_15", "plants_16.jpg", "plants_18", "plants_19.jpg", "plants_20", "plants_21", "plants_22.jpg", "plants_23"].sample %>
+    <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
+      <div class="garden-card">
+        <div class="garden-card-body d-flex">
+          <div class="garden-details">
+            <h5 class="garden-card-title"><%= garden.name %></h5>
+            <p class="garden-card-text">Size: <%= garden.size %></p>
+            <p class="garden-card-text">Location: <%= garden.location %></p>
+            <p class="garden-card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
+          </div>
+
+          <%# calculate closest 10% for sunlight %>
+          <% sunlight = garden.sunlight || 0 %>
+          <% closest_10 = (sunlight / 10.0).round * 10 %>
+          <% image_path = "#{closest_10}_sunlight.png" %>
+
+          <div class="sun-icon-container">
+            <%= image_tag image_path, alt: "sunlight icon", class: "sun-icon" %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
