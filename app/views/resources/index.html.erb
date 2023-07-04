@@ -30,7 +30,7 @@
     <% @resources.each do |resource| %>
 
     <div class="card-category" style="background: url(<%= asset_path resource.file_type %>)">
-    <div class="card-title"><%= link_to resource.url do %><%= resource.title %><% end %></div>
+    <div class="card-title"><%= link_to resource.url, target:"_blank" do %><%= resource.title %><% end %></div>
 
 
       </div>
