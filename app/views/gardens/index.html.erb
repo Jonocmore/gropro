@@ -1,7 +1,10 @@
 <div class="main-container">
+
   <header class="header">
     <div class="header-left">
-      <%= image_tag "sun.svg", class:"weather-icon large", :data => "current-icon"  %>
+       <img class="weather-icon large" data-current-icon src="/assets/sun.svg">
+
+
       <div class="header-current-temp">
         <span data-current-temp>31</span>&deg;
       </div>
@@ -95,6 +98,8 @@
         <div><span data-temp></span><span>&deg;</span></div>
       </div>
     </template>
+
+
 
   <h1>My Gardens</h1>
   <% @gardens.each do |garden| %>

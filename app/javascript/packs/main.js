@@ -37,16 +37,17 @@ function getIconUrl(iconCode) {
 }
 
 const currentIcon = document.querySelector("[data-current-icon]")
-console.log(currentIcon)
 function renderCurrentWeather(current) {
-  // currentIcon.src = getIconUrl(current.iconCode)
-  setValue("current-temp", current.currentTemp)
-  setValue("current-high", current.highTemp)
-  setValue("current-low", current.lowTemp)
-  setValue("current-fl-high", current.highFeelsLike)
-  setValue("current-fl-low", current.lowFeelsLike)
-  setValue("current-wind", current.windSpeed)
-  setValue("current-precip", current.precip)
+  let currentIcon = document.querySelector("[data-current-icon]");
+  currentIcon.src = getIconUrl(current.iconCode);
+
+  setValue("current-temp", current.currentTemp);
+  setValue("current-high", current.highTemp);
+  setValue("current-low", current.lowTemp);
+  setValue("current-fl-high", current.highFeelsLike);
+  setValue("current-fl-low", current.lowFeelsLike);
+  setValue("current-wind", current.windSpeed);
+  setValue("current-precip", current.precip);
 }
 
 const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, { weekday: "long" })
