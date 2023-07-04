@@ -77,7 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_080832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "popular", default: false
-    t.boolean "recommended"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -87,8 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_080832) do
     t.bigint "garden_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "plant_name"
-    t.string "plant_image"
     t.index ["garden_id"], name: "index_recommendations_on_garden_id"
     t.index ["plant_id"], name: "index_recommendations_on_plant_id"
   end

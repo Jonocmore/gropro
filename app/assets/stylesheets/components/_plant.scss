@@ -1,9 +1,10 @@
 .plant-image {
-    width: 100%;
-    display: block;
-    margin: -54px 0 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 
 }
 
@@ -41,11 +42,10 @@
 }
 
 
-.plant-info h4 {
+.plant-info h3 {
   margin-bottom: 0.5rem; /* Space out the heading from the text a little */
-  font-size: 1.6em;
 }
-S
+
 .plant-info p {
   margin: 0; /* Remove default paragraph margin */
 }
