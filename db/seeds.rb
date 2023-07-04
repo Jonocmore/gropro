@@ -357,16 +357,187 @@ puts "#{Message.all.count} Messages Created"
 
 p "Creating Resources"
 
-10.times do
   Resource.create!(
-    title: Faker::Book.title,
-    text: Faker::Lorem.paragraph,
-    author: Faker::Book.author,
+    title: 'Benefits of Gardening',
+    text: '',
+    author: 'gardening.co.za',
     date: Faker::Date.between(from: 5.years.ago, to: Date.today),
-    file_type: "pdf",
-    url: Faker::Internet.url,
+    file_type: "benefits_of_garden_resource.png",
+    url: 'https://gardening.co.za/pages/benefits-of-gardening',
+    popular: true
   )
-end
+
+  Resource.create!(
+    title: 'Potato Grow',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "potato_resource.png",
+    url: 'https://gardening.co.za/pages/potato-grow-care-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Green House Growing',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "greenhouse_resource.png",
+    url: 'https://gardening.co.za/pages/growing-in-green-houses-guides',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Worm Farming',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "worm_resource.png",
+    url: 'https://gardening.co.za/pages/vermiculture-worm-farming-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Tomato Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "tomato_resource.png",
+    url: 'https://gardening.co.za/pages/tomato-grow-care-guides',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Citrus & Fruit',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "citrus_resource.png",
+    url: 'https://gardening.co.za/pages/citrus-fruit-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Weed Control',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "weed_resource.png",
+    url: 'https://gardening.co.za/pages/weed-control',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Herb & Veggies',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "herb_resource.png",
+    url: 'https://gardening.co.za/pages/herb-veggie-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Farming Gods Way',
+    text: '',
+    author: 'farming-gods-way.org',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "farming.png",
+    url: 'https://www.farming-gods-way.org/vegetable_guide.htm',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Flower Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "flower_resource.png",
+    url: 'https://gardening.co.za/pages/flower-growing-care-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Eco Composting',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "eco_resource.png",
+    url: 'https://gardening.co.za/pages/eco-composting-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Raised Garden Beds',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "bed_resource.png",
+    url: 'https://gardening.co.za/pages/raised-garden-beds-grow-bag-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Chilli Peppers',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "chilli_resource.png",
+    url: 'https://gardening.co.za/pages/chilli-pepper-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Pest Control',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "pest_resource.png",
+    url: 'https://gardening.co.za/pages/pest-control-guides',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Indoor Plants',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "indoor_resource.png",
+    url: 'https://gardening.co.za/pages/indoor-plant-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Seed And Seedlings',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "seed_resource.png",
+    url: 'https://gardening.co.za/pages/seed-seedling-guides',
+    popular: true
+  )
+
+  Resource.create!(
+    title: 'Succulent Guides',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "succulent_resource.png",
+    url: 'https://gardening.co.za/pages/seed-seedling-guides',
+    popular: false
+  )
+
+  Resource.create!(
+    title: 'Soil Care',
+    text: '',
+    author: 'gardening.co.za',
+    date: Faker::Date.between(from: 5.years.ago, to: Date.today),
+    file_type: "soil_resource.png",
+    url: 'https://gardening.co.za/pages/soil-care-guides',
+    popular: true
+  )
+
+
 
 puts "#{Resource.all.count} Resources Created"
 

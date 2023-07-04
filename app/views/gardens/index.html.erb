@@ -1,7 +1,107 @@
 <div class="main-container">
-  <h1>My Gardens Page</h1>
-  <p>List Of My Gardens Which Have Created as a User</p>
 
+  <header class="header">
+    <div class="header-left">
+       <img class="weather-icon large" data-current-icon src="/assets/sun.svg">
+
+
+      <div class="header-current-temp">
+        <span data-current-temp>31</span>&deg;
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="info-group">
+        <div class="label">High</div>
+        <div><span data-current-high>32</span>&deg;
+        </div>
+      </div>
+      <div class="info-group">
+        <div class="label">FL High</div>
+        <div><span data-current-fl-high>27</span>&deg;
+        </div>
+      </div>
+      <div class="info-group">
+        <div class="label">Wind</div>
+        <div><span data-current-wind>9</span><span class="value-sub-info">km/h</span>
+        </div>
+      </div>
+      <div class="info-group">
+        <div class="label">Low</div>
+        <div><span data-current-low>19</span>&deg;
+        </div>
+      </div>
+      <div class="info-group">
+        <div class="label">FL Low</div>
+        <div><span data-current-fl-low>12</span>&deg;
+        </div>
+      </div>
+      <div class="info-group">
+        <div class="label">Precip</div>
+        <div>
+          <span data-current-precip>0.1</span
+            ><span class="value-sub-info">in</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="day-section" data-day-section>
+
+  <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Monday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Tuesday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Wednesday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Thursday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Friday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Saturday</div>
+        <div>32&deg;</div>
+      </div>
+
+      <div class="day-card">
+        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <div class="day-card-day">Sunday</div>
+        <div>32&deg;</div>
+      </div>
+
+  </section>
+
+  <template id="day-card-template">
+      <div class="day-card">
+        <img data-icon class="weather-icon" />
+        <div class="day-card-day" data-date></div>
+        <div><span data-temp></span><span>&deg;</span></div>
+      </div>
+    </template>
+
+
+
+  <h1>My Gardens</h1>
   <% @gardens.each do |garden| %>
     <%# Randomly select an image for each card's border %>
     <% border_image = ["plants_1.jpg", "plants_2", "plants_3", "plants_4.jpg", "plants_5", "plants_6", "plants_7.jpg", "plants_8", "plants_9", "plants_10.jpg", "plants_11", "plants_12", "plants_13.jpg", "plants_14", "plants_15", "plants_16.jpg", "plants_18", "plants_19.jpg", "plants_20", "plants_21", "plants_22.jpg", "plants_23"].sample %>
@@ -27,8 +127,9 @@
       </div>
     </div>
   <% end %>
-
   <p>I Can Opt To Create A New Garden</p>
   <%= link_to "Create New Garden", new_garden_path, class: "btn btn-primary" %>
   <p><%= @response %></p>
 </div>
+
+<%= javascript_pack_tag "main" %>
