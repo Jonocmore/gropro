@@ -103,6 +103,7 @@
 
   <h1>My Gardens</h1>
   <% @gardens.each do |garden| %>
+
     <%# Randomly select an image for each card's border %>
     <% border_image = ["plants_1.jpg", "plants_2", "plants_3", "plants_4.jpg", "plants_5", "plants_6", "plants_7.jpg", "plants_8", "plants_9", "plants_10.jpg", "plants_11", "plants_12", "plants_13.jpg", "plants_14", "plants_15", "plants_16.jpg", "plants_18", "plants_19.jpg", "plants_20", "plants_21", "plants_22.jpg", "plants_23"].sample %>
     <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
@@ -113,6 +114,8 @@
             <p class="garden-card-text">Size: <%= garden.size %></p>
             <p class="garden-card-text">Location: <%= garden.location %></p>
             <p class="garden-card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
+            <%= link_to "Show", garden_path(garden), class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_garden_path(garden), class: "btn btn-primary" %>
           </div>
 
           <%# calculate closest 10% for sunlight %>
