@@ -1,5 +1,4 @@
 class GardensController < ApplicationController
-  before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
     @user = current_user
@@ -8,21 +7,6 @@ class GardensController < ApplicationController
 
   def new
     @garden = Garden.new
-  end
-
-  def add_plant
-    @garden = Garden.find(params[:id])
-    @plant = Plant.find(params[:plant_id])
-    @garden.plants << @plant
-
-    redirect_to garden_path(@garden), notice: "Plant added to garden!"
-  end
-
-  def remove_plant_from_garden
-    @garden = Garden.find(params[:id])
-    @plant = Plant.find(params[:plant_id])
-    @garden.plants.delete(@plant) # Remove the plant from the garden
-    redirect_to garden_path(@garden), notice: "Plant removed from garden successfully."
   end
 
   def create
@@ -328,44 +312,6 @@ class GardensController < ApplicationController
       @selected_plant = Plant.find(params[:plant_id])
       @recommendation.plant_id = @selected_plant.id
     end
-
-    # Percy
-    category = params[:category]
-    puts "Category: #{category}" # Add this line for debugging
-
-    if params[:query].present?
-      @plants = Plant.search_by_plant_name(params[:query])
-    else
-      if category.present?
-        if category == "recommended"
-          @plants = Plant.where(recommended: true)
-          @valid_plants = @garden.plants.where(recommended: true)
-        else
-          @plants = Plant.where(category: category)
-          @valid_plants = @garden.plants.where(category: category)
-        end
-      else
-        @plants = Plant.order(:plant_name)
-        @valid_plants = @garden.plants
-      end
-    end
-  end
-
-  def edit
-  end
-
-  def update
-    if @garden.update(garden_params)
-      redirect_to garden_path(@garden), notice: "Garden updated successfully."
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @garden = Garden.find(params[:id])
-    @garden.destroy
-    redirect_to gardens_path, notice: "Garden deleted successfully."
   end
 
   private
@@ -380,16 +326,5 @@ class GardensController < ApplicationController
 
   def parse_ai_response(response)
     response.split(", ")
-  end
-
-  # Percy
-  def set_garden
-    @garden = Garden.find(params[:id])
-    @valid_plants = @garden.recommendations.map(&:plant)
-  end
-
-  def recommendation_params
-    params.require(:recommendation).permit(:plant_name, :plant_image)
-    params.require(:recommendation).permit(:plant)
   end
 end

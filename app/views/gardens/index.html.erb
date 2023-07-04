@@ -113,8 +113,6 @@
             <p class="garden-card-text">Size: <%= garden.size %></p>
             <p class="garden-card-text">Location: <%= garden.location %></p>
             <p class="garden-card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
-            <%= link_to "Show", garden_path(garden), class: "btn btn-primary" %>
-            <%= link_to "Edit", edit_garden_path(garden), class: "btn btn-primary" %>
           </div>
 
           <%# calculate closest 10% for sunlight %>
