@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
   def home
     category = params[:category]
-    puts "Category: #{category}" # Add this line for debugging
 
     if params[:query].present?
       @plants = Plant.search_by_plant_name(params[:query])

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :gardens, except: [:destroy] do
+  resources :gardens do
+    member do
+      post 'add_to_garden', to: 'gardens#add_to_garden', as: 'add_to_garden'
+    end
     resources :recommendations, only: %i[index create show]
     resources :plants, only: %i[index show destroy]
   end
