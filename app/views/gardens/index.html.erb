@@ -104,7 +104,7 @@
   <h1>My Gardens</h1>
   <% @gardens.each do |garden| %>
     <%# Randomly select an image for each card's border %>
-    <% border_images = ["plants_1", "plants_2", "plants_3", "plants_4", "plants_5", "plants_6", "plants_7", "plants_8", "plants_9", "plants_10", "plants_11", "plants_12", "plants_13", "plants_14", "plants_15", "plants_16", "plants_18", "plants_19", "plants_20", "plants_21", "plants_22", "plants_23"] %>
+    <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_12.jpg", "plants_13.jpg", "plants_14.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
     <% border_image = border_images.sample %>
     <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
       <div class="garden-card">
