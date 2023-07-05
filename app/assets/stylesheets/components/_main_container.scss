@@ -1,3 +1,29 @@
 .main-container {
   background: #F3EFE0;
 }
+
+.container-light-green {
+  background-color: lightgreen;
+  padding: 20px;
+}
+
+.container-dark-green {
+  background-color: darkgreen;
+  color: white;
+  padding: 20px;
+  max-width: 500px; /* Adjust this to avoid cut off text */
+}
+
+#plant-doctor-form {
+  display: flex;
+  justify-content: space-between; /* ensures equal spacing */
+  align-items: center; /* centers items vertically */
+}
+
+#plant-doctor-form h3,
+#plant-doctor-form select,
+#plant-doctor-form input,
+#plant-doctor-form button {
+  flex-basis: 20%; /* sets the initial size for each element, adjust as needed */
+  font-family: 'Outfit', sans-serif;
+}

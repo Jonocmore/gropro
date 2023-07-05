@@ -328,6 +328,19 @@ class GardensController < ApplicationController
         Plant.order(:plant_name)
       end
     end
+    if params[:prompt].present?
+      prompt = params[:prompt]
+      open_ai_service = OpenAiService.new(prompt)
+      @response = open_ai_service.call
+    end
+    @plants_for_dropdown = @garden_plants.pluck(:plant_name)
+    if params[:plant_name].present? && params[:issue].present?
+      plant_name = params[:plant_name]
+      issue = params[:issue]
+      doctor_prompt = "My #{plant_name} plant has #{issue}. What should I do?"
+      open_ai_service = OpenAiService.new(doctor_prompt)
+      @response = open_ai_service.call
+    end
   end
 
   def add_plant
