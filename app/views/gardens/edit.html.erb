@@ -1,5 +1,5 @@
 <div class="main-container">
-  <h1 class="plant-heading">Create Your Garden</h1>
+  <h1 class="plant-heading">Edit Your Garden</h1>
 
   <%= form_for @garden, html: { class: 'garden-form' } do |f| %>
     <div class="form-group">
@@ -33,8 +33,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.submit "Create Garden", class: 'form-submit' %>
-    </div>
+      <%= f.submit "Update Garden", class: 'form-submit', id: 'update-garden-btn' %>
+      </div>
   <% end %>
-  <%= link_to "Back", gardens_path, class: "back-button" %>
 </div>

@@ -9,6 +9,20 @@ class GardensController < ApplicationController
     @garden = Garden.new
   end
 
+  def edit
+    @garden = Garden.find(params[:id])
+  end
+
+  def update
+    @garden = Garden.find(params[:id])
+
+    if @garden.update(garden_params)
+      redirect_to gardens_path, notice: "Garden successfully updated."
+    else
+      render :edit
+    end
+  end
+
   def create
     @garden = Garden.new(garden_params)
     @garden.user = current_user
@@ -351,6 +365,20 @@ class GardensController < ApplicationController
       flash[:success] = "Plant added to garden"
     else
       flash[:error] = "This plant is already in your garden"
+    end
+
+    redirect_to garden_path(@garden)
+  end
+
+  def remove_from_garden
+    @garden = Garden.find(params[:garden_id])
+    @plant = Plant.find(params[:plant_id])
+
+    if @garden.plants.include?(@plant)
+      @garden.garden_plants.find_by(plant_id: @plant.id).destroy
+      flash[:success] = "Plant removed from garden"
+    else
+      flash[:error] = "This plant is not in your garden"
     end
 
     redirect_to garden_path(@garden)

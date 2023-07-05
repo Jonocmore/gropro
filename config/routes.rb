@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :gardens do
     member do
       post 'add_to_garden', to: 'gardens#add_to_garden', as: 'add_to_garden'
+      delete 'remove_from_garden', to: 'gardens#remove_from_garden'
     end
     resources :recommendations, only: %i[index create show]
     resources :plants, only: %i[index show destroy]
