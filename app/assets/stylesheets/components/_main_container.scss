@@ -1,3 +1,37 @@
 .main-container {
   background: #F3EFE0;
 }
+
+.container-light-green {
+  background-color: #90A955;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.container-dark-green {
+  background-color: #31572C;
+  color: white;
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#plant-doctor-form {
+  display: flex;
+  justify-content: space-between; /* ensures equal spacing */
+  align-items: center; /* centers items vertically */
+}
+
+#plant-doctor-form h3,
+#plant-doctor-form select,
+#plant-doctor-form input,
+#plant-doctor-form button {
+  flex-basis: 20%; /* sets the initial size for each element, adjust as needed */
+  font-family: 'Outfit', sans-serif;
+}
+
+.btn-green {
+  background-color: #31572C !important;
+  /* Add any additional styles as needed */
+}
