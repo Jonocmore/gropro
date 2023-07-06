@@ -23,19 +23,16 @@
         <% if @garden %>
           <p>Garden Size: <%= @garden.size %> m2</p>
           <p>Sunlight Percentage: <%= @garden.sunlight %> %</p>
-          <%= link_to "Back", gardens_path, class: "back-button" %>
+
           <!-- Display garden plants -->
           <h2>Garden Plants:</h2>
           <div class="row">
             <% @garden_plants.each do |plant| %>
               <div class="col-md-3">
                 <div class="plant-card">
-                  <%= link_to page_path(plant), data: { turbo: :false } do %>
-                    <%= image_tag plant.plant_image, class: "plant-card-img" %>
-                  <% end %>
+                  <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "plant-card-img" %><% end %>
                   <div class="plant-card-body">
                     <h2 class="plant-card-title"><%= plant.plant_name %></h2>
-                    <%= button_to "Remove", remove_from_garden_garden_path(garden_id: @garden.id, plant_id: plant.id), method: :delete, class: "remove-button" %>
                   </div>
                 </div>
               </div>
