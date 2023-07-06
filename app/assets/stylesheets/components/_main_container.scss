@@ -3,15 +3,18 @@
 }
 
 .container-light-green {
-  background-color: lightgreen;
+  background-color: #90A955;
   padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .container-dark-green {
-  background-color: darkgreen;
+  background-color: #31572C;
   color: white;
   padding: 20px;
-  max-width: 500px; /* Adjust this to avoid cut off text */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 #plant-doctor-form {
@@ -26,4 +29,9 @@
 #plant-doctor-form button {
   flex-basis: 20%; /* sets the initial size for each element, adjust as needed */
   font-family: 'Outfit', sans-serif;
+}
+
+.btn-green {
+  background-color: #31572C !important;
+  /* Add any additional styles as needed */
 }
