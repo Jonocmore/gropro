@@ -17,7 +17,7 @@ module Gropro
     config.load_defaults 7.0
     config.autoload_paths += %W(#{config.root}/app/services)
     config.assets.initialize_on_precompile = false
-
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

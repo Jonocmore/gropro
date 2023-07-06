@@ -85,3 +85,4 @@ gem "pg_search"
 gem 'httparty'
 gem 'openai'
 gem 'webpacker'
+
