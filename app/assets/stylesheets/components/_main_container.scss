@@ -35,3 +35,9 @@
   background-color: #31572C !important;
   /* Add any additional styles as needed */
 }
+
+.advice-text {
+  white-space: pre-line; /* This will handle line breaks in the text */
+  word-wrap: break-word; /* This will ensure words break properly at the end of the line */
+  overflow-wrap: break-word; /* This is the modern version of word-wrap */
+}
