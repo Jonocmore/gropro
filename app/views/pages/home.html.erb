@@ -2,17 +2,14 @@
 <div class="home-background">
   <%= image_tag("plants_1.jpg", alt: "Background Image", class: "background-image") %>
   <div class="main-container">
-  <div class="text-box">
-    <h4 class="text-center mb-4">Welcome To Your Ultimate Gardening Companion.</h4>
-    <h5 class="text-center">
-      Our Platform Empowers Garden Enthusiasts To Cultivate Thriving Gardens And Connect With A Vibrant Community Of Fellow Gardeners.
-    </h5>
-    <h5 class="text-center">
-      Monitor, Nurture, And Share Your Gardening Journey With Ease. Create And Manage Multiple Gardens Tailored To Your Space And Preferences. Our Intuitive Interface And Plant Monitoring System Provide Valuable Insights, While Our AI-Powered Recommendations Help You Discover The Perfect Plants For Your Location, As Well As Other Information You Provide Us. Explore Our Resources, Engage In Our Forums, And Join Our Growing Gardening Community. Let's Cultivate Beauty Together.
-    </h5>
+  <% unless params[:query].present? || params[:category].present? %>
+    <div class="text-box">
+      <h1>Welcome to GroPro</h1>
+      <h2>Your ultimate gardening companion. Our platform empowers garden enthusiasts to cultivate thriving gardens and connect with a vibrant community of fellow gardeners.</h2>
+      <h2>Monitor, nurture, and share your gardening journey with ease. Create and manage multiple gardens tailored to your space and preferences. Our intuitive interface and plant monitoring system provide valuable insights, while our AI-powered recommendations help you discover the perfect plants for your location, as well as other information you provide us. Explore our resources, engage in our forum, and join our growing gardening community. Let's cultivate beauty together.</h2>
+    </div>
+  <% end %>
   </div>
-</div>
-
   <div class="empty-container">
   </div>
   <div class="main-container">
@@ -24,9 +21,10 @@
             <div class="col-sm-8 my-3">
               <%= form_with url: root_path, method: :get, class: "d-flex" do %>
                 <%= text_field_tag :query,
-                                   params[:query],
-                                   class: "form-control",
-                                   placeholder: "Type a keyword" %>
+                      params[:query],
+                      class: "form-control",
+                      placeholder: "Type a keyword"
+                  %>
                 <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
               <% end %>
               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

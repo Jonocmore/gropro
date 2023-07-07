@@ -1,5 +1,9 @@
 <div class="navbar navbar-expand-lg navbar-light navbar-lewagon">
   <div class="container-fluid d-flex align-items-end justify-content-between">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "gropro_name.png", class: "name-image" %>
+    <% end %>
+    <%= image_tag "pot_plants.png", class: "middle-image" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,44 +18,23 @@
         <li class="nav-item <%= "active" if current_page?(resources_path) %>">
           <%= link_to "Resources", resources_path, class: "nav-link" %>
         </li>
-        <li class="nav-item <%= "active" if current_page?(forums_path) %>">
+        <li class="nav-item <%= 'active' if current_page?(forums_path) %>">
           <%= link_to "Forums", forums_path, class: "nav-link" %>
         </li>
-      </ul>
-  </div>
-<div class="container-fluid">
-    <div class="row align-items-center">
-      <div class="col text-start">
-        <%= link_to "#", class: "navbar-brand" do %>
-         <%= image_tag "gropro_name.png", class: "name-image three-d-effect" %>
-
-
-
-        <%= image_tag "pot_plants.png", class: "small-image" %>
-
-
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.first_name %></a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item <%= "active" if current_page?(new_user_session_path) %>">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
         <% end %>
-      </div>
-      <% # <div class="col text-end"> %>
-
-      </div>
+      </ul>
     </div>
   </div>
-   <div class="navbar-nav ms-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.first_name %></a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item <%= "active" if current_page?(new_user_session_path) %>">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </div>
-
 </div>
 <div id="gradient-bar"></div>
