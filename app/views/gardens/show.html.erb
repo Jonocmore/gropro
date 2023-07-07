@@ -1,3 +1,5 @@
+<div class="home-background">
+  <%= image_tag("plants_1.jpg", alt: "Background Image", class: "background-image") %>
 <div class="main-container">
   <%= link_to image_tag('back-icon.png', size: '30x30'), gardens_path, class: "back-button fixed" %>
   <div class="plant-container">
@@ -63,9 +65,9 @@
             <div class="col-sm-8 my-3">
               <%= form_with url: garden_path(@garden), method: :get, class: "d-flex" do %>
                 <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "Type a keyword" %>
+                                   params[:query],
+                                   class: "form-control",
+                                   placeholder: "Type a keyword" %>
                 <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
               <% end %>
             </div>
@@ -96,3 +98,4 @@
       </div>
     </div>
   </div>
+</div>
