@@ -1,0 +1,26 @@
+.shdw-btn {
+  transition: all 0.3s ease-in-out;
+  font-family: "Dosis", sans-serif;
+}
+
+.shdw-btn {
+  width: 150px;
+  height: 60px;
+  border-radius: 50px;
+  background-image: linear-gradient(135deg, #4c7e46 0%, #31572C 100%);
+  box-shadow: 0 20px 30px -6px rgba(39, 121, 40, 0.5);
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.shdw-btn:hover {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.shdw-btn:active {
+  opacity: 0.5;
+}

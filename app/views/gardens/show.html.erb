@@ -1,48 +1,55 @@
 <div class="home-background">
   <%= image_tag("plants_1.jpg", alt: "Background Image", class: "background-image") %>
 <div class="main-container">
-  <%= link_to "Back", gardens_path, class: "back-button" %>
+  <%= link_to image_tag('back-icon.png', size: '30x30'), gardens_path, class: "back-button fixed" %>
   <div class="plant-container">
     <% if @plants_for_dropdown.any? %>
       <div class="container-light-green">
         <h3>Plant Doctor:</h3>
         <%= form_with url: garden_path(@garden), method: :get, id: "plant-doctor-form" do |f| %>
-          <%= f.select :plant_name, @plants_for_dropdown, prompt: "Select a plant" %>
-          <%= f.text_field :issue, placeholder: "Describe the problem" %>
-          <%= f.submit "Get Advice", class: "btn btn-primary" %>
-        <% end %>
+        <%= f.select :plant_name, @plants_for_dropdown, prompt: "Select a plant", class: "form-field" %>
+        <%= f.text_field :issue, placeholder: "Describe the problem", class: "form-field form-field-wide" %>
+        <%= f.submit "Get Advice", class: "shdw-btn" %>
+      <% end %>
         <% if @response %>
           <div class="container-dark-green">
             <h4>Advice:</h4>
-            <pre><%= @response.join("\n") %></pre>
+            <p class="advice-text"><%= @response.join("\n").html_safe %></p>
             <%= link_to "Clear", :back, class: "btn btn-primary btn-green" %>
           </div>
         <% end %>
       </div>
     <% end %>
-    <div class="row">
-      <div class="col">
-        <h1 class="test"><%= @garden.name %></h1>
-        <% if @garden %>
-          <p>Garden Size: <%= @garden.size %> m2</p>
-          <p>Sunlight Percentage: <%= @garden.sunlight %> %</p>
-
-          <!-- Display garden plants -->
-          <h2>Garden Plants:</h2>
-          <div class="row">
-            <% @garden_plants.each do |plant| %>
-              <div class="col-md-3">
-                <div class="plant-card">
-                  <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "plant-card-img" %><% end %>
-                  <div class="plant-card-body">
-                    <h2 class="plant-card-title"><%= plant.plant_name %></h2>
-                    <%= button_to "Remove", remove_from_garden_garden_path(garden_id: @garden.id, plant_id: plant.id), method: :delete, class: "remove-button" %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
+    <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
+    <% border_image = asset_path(border_images.sample) %>
+    <div class="garden-wrapper" style="background-image: url(<%= border_image %>);">
+      <div class="row">
+        <div class="col">
+          <div class="garden-plants-section">
+            <h1 class="grdn-name"><%= @garden.name %></h1>
+            <% if @garden %>
+              <p>Garden Size: <%= @garden.size %> m2</p>
+              <p>Sunlight Percentage: <%= @garden.sunlight %> %</p>
           </div>
-        <% end %>
+            <!-- Display garden plants -->
+            <div class="garden-plants-section">
+              <h2 class="text-center">My Plants</h2>
+              <div class="row">
+                <% @garden_plants.each do |plant| %>
+                  <div class="col-md-3">
+                    <div class="plant-card">
+                      <%= link_to page_path(plant), data: { turbo: :false } do %><%= image_tag plant.plant_image, class: "plant-card-img" %><% end %>
+                      <div class="plant-card-body">
+                        <h2 class="plant-card-title"><%= plant.plant_name %></h2>
+                        <%= button_to "Remove", remove_from_garden_garden_path(garden_id: @garden.id, plant_id: plant.id), method: :delete, class: "remove-button" %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -53,7 +60,7 @@
     <div class="plant-container">
       <div class="row">
         <div class="col">
-        <h1 class="test">Plants</h1>
+        <h1 class="text-center">Add Some Plants!</h1>
           <div class="row justify-content-center">
             <div class="col-sm-8 my-3">
               <%= form_with url: garden_path(@garden), method: :get, class: "d-flex" do %>
