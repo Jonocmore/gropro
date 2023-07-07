@@ -1,5 +1,47 @@
 .main-container {
   background: #F3EFE0;
+  font-family: 'Outfit', sans-serif;
+  color: #132A13;
+  justify-content: center;
+  position: relative;
+}
+
+.grdn-name {
+  text-align: center;
+}
+
+.back-button.fixed {
+  position: fixed;
+  padding: 20px;
+  z-index: 10;
+}
+
+.garden-wrapper {
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for a little "depth" */
+  background: linear-gradient(rgba(169,204,142,0.7), rgba(169,204,142,0.7)), url(); /* Here we only set the semi-transparent green background */
+  background-size: cover; /* ensures the image covers the entire element */
+}
+
+.garden-plants-section {
+  background-color: rgba(169, 204, 142, 0.8); /* A different shade of green with opacity */
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for a little "depth" */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.garden-plants {
+  background-color: #B8D08D; /* Another shade of green */
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for a little "depth" */
+}
+
+.garden-plants h2 {
+  text-align: center;
 }
 
 .container-light-green {
@@ -40,4 +82,62 @@
   white-space: pre-line; /* This will handle line breaks in the text */
   word-wrap: break-word; /* This will ensure words break properly at the end of the line */
   overflow-wrap: break-word; /* This is the modern version of word-wrap */
+  width: 80%; /* Adjust this to change the width of the text container */
+  margin: auto; /* Centers the block if it's less than 100% width */
+}
+
+.gardens-heading {
+  text-align: center;
+  font-size: 4em;
+  text-decoration: solid;
+  color: #132A13;
+}
+
+.weather-container {
+  background: #F3EFE0;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0 auto 2rem; /* Here we set top and bottom margins to 0 and 2rem respectively, and left and right margins to auto */
+  max-width: 80%;
+  border: 10px solid #90A955; /* Adjust size and color as needed */
+}
+
+.weather-heading {
+  text-align: center;
+  font-size: 2em;
+  color: #37474F;
+}
+
+.back-button {
+  /* Additional styles to give it some space and make it larger */
+  margin-bottom: 1em;
+  font-size: 1.25em;
+}
+
+.form-field,
+.form-field-wide {
+  padding: 0.5em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevents shrinking */
+  margin-right: 0.5em; /* Add margin to the right of the elements */
+}
+
+.form-field {
+  width: 5%; /* Makes dropdown smaller */
+}
+
+.form-field-wide {
+  flex-grow: 2; /* Allows this field to take up twice as much space */
+}
+
+.garden-wrapper {
+  background-color: #A9CC8E; /* A different shade of green */
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adding a subtle box shadow for a little "depth" */
+}
+
+.btn-primary{
+  background-color: #A9CC8E;
 }

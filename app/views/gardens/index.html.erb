@@ -1,5 +1,6 @@
 <div class="main-container">
-
+<div class="weather-container">
+<h2 class="weather-heading">Current Weather</h2>
   <header class="header">
     <div class="header-left">
        <img class="weather-icon large" data-current-icon src="/assets/sun.svg">
@@ -99,40 +100,45 @@
       </div>
     </template>
 
+</div>
 
-
-  <h1>My Gardens</h1>
+  <h1 class="gardens-heading">My Gardens</h1>
   <% @gardens.each do |garden| %>
-    <%# Randomly select an image for each card's border %>
-    <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_12.jpg", "plants_13.jpg", "plants_14.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
-    <% border_image = border_images.sample %>
-    <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
-      <div class="garden-card">
-        <div class="garden-card-body d-flex">
-          <div class="garden-details">
-            <h5 class="garden-card-title"><%= garden.name %></h5>
-            <p class="garden-card-text">Size: <%= garden.size %></p>
-            <p class="garden-card-text">Location: <%= garden.location %></p>
-            <p class="garden-card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
-            <%= link_to "Show", garden_path(garden), class: "btn btn-primary" %>
-            <%= link_to "Edit", edit_garden_path(garden), class: "btn btn-primary" %>
-          </div>
+      <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
+      <% border_image = border_images.sample %>
+      <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
+        <div class="garden-card">
+            <div class="garden-title-and-buttons">
+                <h5 class="garden-card-title"><%= garden.name %></h5>
+                <div class="button-container">
+                    <%= link_to "View", garden_path(garden), class: "btn btns-primary" %>
+                    <%= link_to "Edit", edit_garden_path(garden), class: "btn btns-secondary" %>
+                </div>
+            </div>
+            <div class="garden-card-body d-flex justify-content-between">
+                <div class="garden-details">
+                    <p class="garden-card-text">Size: <%= garden.size %>m2</p>
+                    <p class="garden-card-text">Location: <%= garden.location %></p>
+                    <p class="garden-card-text"><%= garden.outside ? 'Outside' : 'Inside' %></p>
+                </div>
 
-          <%# calculate closest 10% for sunlight %>
-          <% sunlight = garden.sunlight || 0 %>
-          <% closest_10 = (sunlight / 10.0).round * 10 %>
-          <% image_path = "#{closest_10}_sunlight.png" %>
+                <% sunlight = garden.sunlight || 0 %>
+                <% closest_10 = (sunlight / 10.0).round * 10 %>
+                <% image_path = "#{closest_10}_sunlight.png" %>
 
-          <div class="sun-icon-container">
-            <%= image_tag image_path, alt: "sunlight icon", class: "sun-icon" %>
-          </div>
+                <div class="sun-icon-container">
+                    <%= image_tag image_path, alt: "sunlight icon", class: "sun-icon" %>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+
+
   <% end %>
-  <p>I Can Opt To Create A New Garden</p>
-  <%= link_to "Create New Garden", new_garden_path, class: "btn btn-primary" %>
-  <p><%= @response %></p>
+
+  <div class="padding-btm">
+    <%= link_to "Create New Garden", new_garden_path, class: "btn btns-primary" %>
+  </div>
 </div>
 
 <%= javascript_pack_tag "main" %>

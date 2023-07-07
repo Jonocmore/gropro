@@ -1,36 +1,66 @@
+.main-plant-container {
+  background: #F3EFE0;
+  font-family: 'Outfit', sans-serif; /* Added font */
+  color: #37474F; /* Added dark grey color for text */
+  max-width: 80%;
+  margin: 0 auto; /* Added to center the container on the page */
+  padding: 1rem;
+}
+
+.plant-heading {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid #90A955; /* Added a green bottom border */
+}
+
+.plant-content {
+  display: flex; /* This will make the image and details side by side */
+  gap: 2rem; /* This adds some space between the image and the details */
+  margin: 2rem 0;
+}
+
 .plant-image {
   display: block;
   max-width: 100%;
-  height: auto;
-  margin: auto;
+  height: 100%; /* New */
+  object-fit: cover; /* New */
   box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-
 }
 
 .plant-image-container {
+  flex: 1 1 40%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-top: 1.5rem;
+  position: relative; /* New */
+  overflow: hidden; /* New */
 }
 
-.radial-broder {
+.radial-border {
   display: inline-block;
+  position: absolute; /* New */
+  top: 0; /* New */
+  left: 0; /* New */
+  width: 90%;
+  height: 90%;
   border-radius: 10px;
   background: radial-gradient(circle at center, lightgray 10%, transparent 11%, transparent 100%);
   padding: 10px;
+  overflow: hidden; /* New */
 }
 
 .plant-details {
-  margin: 2rem auto;
+  flex: 1 1 60%;
+  margin: 1rem auto;
   margin-bottom: 0;
   max-width: 1000px; /* Or adjust to fit your site design */
 }
 
 .plant-info {
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
   background: #F3EFE0; /* Light grey background for visibility, change as needed */
   border-radius: 10px; /* Rounded corners for a softer appearance */
 }
