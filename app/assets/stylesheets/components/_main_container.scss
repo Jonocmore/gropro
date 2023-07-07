@@ -139,5 +139,48 @@
 }
 
 .btn-primary{
-  background-color: #A9CC8E;
+  background-color: #31572C;
+  border-color: #A9CC8E;
+}
+
+.btn-primary:hover{
+  background-color: #132A13;
+  border-color: #A9CC8E;
+}
+
+.btn-primary:active{
+  background-color: #132A13;
+  border-color: #A9CC8E;
+}
+
+.btns-primary{
+  background-color: #31572C;
+  border-color: #A9CC8E;
+}
+
+.btns-primary:hover{
+  background-color: #132A13;
+  border-color: #A9CC8E;
+  color: white;
+}
+
+.btns-primary:active{
+  background-color: #132A13;
+  border-color: #A9CC8E;
+}
+
+.btns-secondary{
+  background-color: #4F772D;
+  border-color: #A9CC8E;
+}
+
+.btns-secondary:hover{
+  background-color: #132A13;
+  border-color: #A9CC8E;
+  color: white;
+}
+
+.btns-secondary:active{
+  background-color: #132A13;
+  border-color: #A9CC8E;
 }

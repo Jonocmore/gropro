@@ -102,7 +102,12 @@
 
 </div>
 
-  <h1 class="gardens-heading">My Gardens</h1>
+  <div class="top-section">
+    <h1 class="gardens-heading">My Gardens</h1>
+    <div class="add-garden-button">
+      <%= link_to "Create New Garden", new_garden_path, class: "btn btns-primary" %>
+    </div>
+  </div>
   <% @gardens.each do |garden| %>
       <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
       <% border_image = border_images.sample %>
@@ -135,10 +140,6 @@
 
 
   <% end %>
-
-  <div class="padding-btm">
-    <%= link_to "Create New Garden", new_garden_path, class: "btn btns-primary" %>
-  </div>
 </div>
 
 <%= javascript_pack_tag "main" %>
