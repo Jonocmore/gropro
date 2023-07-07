@@ -1,4 +1,3 @@
-/* Add this CSS code below your existing code */
 .navbar-lewagon {
   justify-content: space-between;
   align-items: flex-end; /* This aligns the items inside your navbar to the bottom */
@@ -9,101 +8,61 @@
   top: 0;
   z-index: 1030;
   opacity: 1;
-  margin-bottom: 80px; /* Add the desired amount of space */
 }
-.navbar-nav {
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 326px;
+  height: 81px;
+}
+
+.navbar-lewagon .navbar-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  justify-content: space-around;
 }
 
-.nav-item {
-  position: relative;
-  padding: 1rem 0.2rem; /* Increase the padding to make the items bigger */
-  transition: 0.2s;
+.navbar-lewagon .navbar-nav .nav-link {
+  font-size: 34px;
+  font-family: 'Outfit Extra Light', sans-serif;
+  color: #132A13;
 }
 
-.nav-item.active::before {
-  content: "";
+.navbar-lewagon .navbar-nav .active > .nav-link {
+  text-decoration: underline;
+}
+
+#gradient-bar {
+  position: sticky;
+  top: 120px; /* adjust to match the height of your navbar */
+  height: 15px; /* adjust to the desired height of your gradient bar */
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(144, 169, 85, 0.75), rgba(243, 239, 224, 0.5));
+  z-index: 1020; /* lower than your navbar */
+}
+
+.middle-image {
   position: absolute;
-  left: 0;
   bottom: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #ffcc00; /* Change to your desired color */
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.nav-item.active:hover::before,
-.nav-item.active:focus::before {
-  transform: scaleX(1);
-}
-
-.nav-link {
-  color: #000000; /* Change to your desired color */
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 30px;
-  // font-weight: bold; /* Add font-weight to make the items more visible */
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #ffcc00; /* Change to your desired color */
-}
-
-.nav-link:hover {
-  transform: scale(1.1); /* Decrease the scale to make the hover effect less dramatic */
-  opacity: 1;
-  filter: blur(0);
-}
-
-.nav-link:before {
-  content: '';
-  position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: #42703c; /* Change to your desired color */
-  border-radius: 30px;
-  transition: transform 1.8s;
-  transform-origin: right;
-  transform: scaleX(0);
-  z-index: -1;
+  right: 0;
+  margin-left: auto;
+  margin-right: 55%;
 }
 
-.nav-link:hover:before {
-  transition: transform 0.5s;
-  transform-origin: left;
-  transform: scaleX(1);
+.name-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: 20px;
 }
 
-.logo-image {
-  height: 60px; /* Adjust the height of the logo */
-}
-
-.small-image {
-  height: 75px; /* Adjust the height of the small image */
-  margin-left: 5px; /* Adjust the margin to create spacing between the logo and the small image */
-}
-
-.three-d-effect {
-  perspective: 1000px;
-  animation: rotateAnimation 20s linear infinite;
-}
-
-@keyframes rotateAnimation {
-  0%, 20% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  80%, 75% {
-    transform: perspective(1000px) rotateY(90deg);
-  }
-  80%, 100% {
-    transform: perspective(1000px) rotateY(0deg);
+@media (max-width: 1188px) {
+  .navbar-lewagon .middle-image {
+    display: none;
   }
 }
