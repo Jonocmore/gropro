@@ -82,6 +82,8 @@
   white-space: pre-line; /* This will handle line breaks in the text */
   word-wrap: break-word; /* This will ensure words break properly at the end of the line */
   overflow-wrap: break-word; /* This is the modern version of word-wrap */
+  width: 80%; /* Adjust this to change the width of the text container */
+  margin: auto; /* Centers the block if it's less than 100% width */
 }
 
 .gardens-heading {
