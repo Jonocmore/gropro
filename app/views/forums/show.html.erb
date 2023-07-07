@@ -1,3 +1,5 @@
+<div class="home-background">
+  <%= image_tag("plants_1.jpg", alt: "Background Image", class: "background-image") %>
 <div class="container forum"
 data-controller="forum-subscription"
   data-forum-subscription-forum-id-value="<%= @forum.id %>"
@@ -5,22 +7,20 @@ data-controller="forum-subscription"
   <h1>#<%= @forum.name %></h1>
   <div class="messages" data-forum-subscription-target="messages" >
     <% @forum.messages.each do |message| %>
-      <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-        <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+      <div class="message-row d-flex <%= message.sender?(current_user) ? "justify-content-end" : "justify-content-start" %>">
+        <div class="<%= message.sender?(current_user) ? "sender-style" : "receiver-style" %>">
           <%= render "messages/message", message: message %>
         </div>
       </div>
     <% end %>
   </div>
   <%= simple_form_for [@forum, @message],
-  html: { data: { action: "turbo:submit-end->forum-subscription#resetForm" },
-  class: "d-flex" } do |f|
-%>
+                      html: { data: { action: "turbo:submit-end->forum-subscription#resetForm" },
+                              class: "d-flex" } do |f| %>
     <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@forum.name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
+                label: false,
+                placeholder: "Message ##{@forum.name}",
+                wrapper_html: { class: "flex-grow-1" } %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>

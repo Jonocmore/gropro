@@ -1,3 +1,5 @@
+<div class="home-background">
+  <%= image_tag("plants_1.jpg", alt: "Background Image", class: "background-image") %>
 <div class="main-container">
 
   <header class="header">
@@ -48,43 +50,43 @@
   <section class="day-section" data-day-section>
 
   <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Monday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Tuesday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Wednesday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Thursday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Friday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Saturday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <%= image_tag "cloud.svg", class:"weather-icon" %>
+        <%= image_tag "cloud.svg", class: "weather-icon" %>
         <div class="day-card-day">Sunday</div>
         <div>32&deg;</div>
       </div>
@@ -103,7 +105,7 @@
 
   <h1>My Gardens</h1>
   <% @gardens.each do |garden| %>
-    <%# Randomly select an image for each card's border %>
+    <% # Randomly select an image for each card's border %>
     <% border_images = ["plants_1.jpg", "plants_2.jpg", "plants_3.jpg", "plants_4.jpg", "plants_5.jpg", "plants_6.jpg", "plants_7.jpg", "plants_8.jpg", "plants_9.jpg", "plants_10.jpg", "plants_11.jpg", "plants_12.jpg", "plants_13.jpg", "plants_14.jpg", "plants_15.jpg", "plants_16.jpg", "plants_18.jpg", "plants_19.jpg", "plants_20.jpg", "plants_21.jpg", "plants_22.jpg", "plants_23.jpg"] %>
     <% border_image = border_images.sample %>
     <div class="card" style="background: url(<%= asset_path border_image %>); background-size: cover;">
@@ -113,12 +115,12 @@
             <h5 class="garden-card-title"><%= garden.name %></h5>
             <p class="garden-card-text">Size: <%= garden.size %></p>
             <p class="garden-card-text">Location: <%= garden.location %></p>
-            <p class="garden-card-text">Type: <%= garden.outside ? 'Outside' : 'Inside' %></p>
+            <p class="garden-card-text">Type: <%= garden.outside ? "Outside" : "Inside" %></p>
             <%= link_to "Show", garden_path(garden), class: "btn btn-primary" %>
             <%= link_to "Edit", edit_garden_path(garden), class: "btn btn-primary" %>
           </div>
 
-          <%# calculate closest 10% for sunlight %>
+          <% # calculate closest 10% for sunlight %>
           <% sunlight = garden.sunlight || 0 %>
           <% closest_10 = (sunlight / 10.0).round * 10 %>
           <% image_path = "#{closest_10}_sunlight.png" %>
@@ -136,3 +138,4 @@
 </div>
 
 <%= javascript_pack_tag "main" %>
+</div>
